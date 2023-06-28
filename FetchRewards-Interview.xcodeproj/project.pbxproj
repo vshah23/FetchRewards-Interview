@@ -275,9 +275,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D2F15BB2A4CF59C00C0FA2D /* Menu.swift in Sources */,
+				1D2F15B72A4CED2200C0FA2D /* Meal.swift in Sources */,
 				1D2F15892A4CC4D000C0FA2D /* ViewController.swift in Sources */,
 				1D2F15852A4CC4D000C0FA2D /* AppDelegate.swift in Sources */,
 				1D2F15872A4CC4D000C0FA2D /* SceneDelegate.swift in Sources */,
+				1D2F15B92A4CF57500C0FA2D /* Recipe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
