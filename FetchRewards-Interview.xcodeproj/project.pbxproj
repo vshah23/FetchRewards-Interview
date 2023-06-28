@@ -16,6 +16,9 @@
 		1D2F159C2A4CC4D100C0FA2D /* FetchRewards_InterviewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2F159B2A4CC4D100C0FA2D /* FetchRewards_InterviewTests.swift */; };
 		1D2F15A62A4CC4D100C0FA2D /* FetchRewards_InterviewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2F15A52A4CC4D100C0FA2D /* FetchRewards_InterviewUITests.swift */; };
 		1D2F15A82A4CC4D100C0FA2D /* FetchRewards_InterviewUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2F15A72A4CC4D100C0FA2D /* FetchRewards_InterviewUITestsLaunchTests.swift */; };
+		1D2F15B72A4CED2200C0FA2D /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2F15B62A4CED2200C0FA2D /* Meal.swift */; };
+		1D2F15B92A4CF57500C0FA2D /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2F15B82A4CF57500C0FA2D /* Recipe.swift */; };
+		1D2F15BB2A4CF59C00C0FA2D /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2F15BA2A4CF59C00C0FA2D /* Menu.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,9 @@
 		1D2F15A12A4CC4D100C0FA2D /* FetchRewards-InterviewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FetchRewards-InterviewUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D2F15A52A4CC4D100C0FA2D /* FetchRewards_InterviewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchRewards_InterviewUITests.swift; sourceTree = "<group>"; };
 		1D2F15A72A4CC4D100C0FA2D /* FetchRewards_InterviewUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchRewards_InterviewUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		1D2F15B62A4CED2200C0FA2D /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
+		1D2F15B82A4CF57500C0FA2D /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		1D2F15BA2A4CF59C00C0FA2D /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +105,7 @@
 		1D2F15832A4CC4D000C0FA2D /* FetchRewards-Interview */ = {
 			isa = PBXGroup;
 			children = (
+				1D2F15B52A4CEB5E00C0FA2D /* Models */,
 				1D2F15842A4CC4D000C0FA2D /* AppDelegate.swift */,
 				1D2F15862A4CC4D000C0FA2D /* SceneDelegate.swift */,
 				1D2F15882A4CC4D000C0FA2D /* ViewController.swift */,
@@ -125,6 +132,16 @@
 				1D2F15A72A4CC4D100C0FA2D /* FetchRewards_InterviewUITestsLaunchTests.swift */,
 			);
 			path = "FetchRewards-InterviewUITests";
+			sourceTree = "<group>";
+		};
+		1D2F15B52A4CEB5E00C0FA2D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1D2F15B62A4CED2200C0FA2D /* Meal.swift */,
+				1D2F15BA2A4CF59C00C0FA2D /* Menu.swift */,
+				1D2F15B82A4CF57500C0FA2D /* Recipe.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -440,6 +457,7 @@
 				DEVELOPMENT_TEAM = 67DFAM4Q32;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "FetchRewards-Interview/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Desserts;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -468,6 +486,7 @@
 				DEVELOPMENT_TEAM = 67DFAM4Q32;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "FetchRewards-Interview/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Desserts;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
