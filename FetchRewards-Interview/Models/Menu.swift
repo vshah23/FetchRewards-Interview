@@ -1,5 +1,5 @@
 //
-//  Meals.swift
+//  Menu.swift
 //  FetchRewards-Interview
 //
 //  Created by Vikas Shah on 6/28/23.
