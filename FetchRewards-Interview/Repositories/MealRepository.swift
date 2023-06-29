@@ -8,7 +8,7 @@
 import Foundation
 
 protocol MealRepository {
-    init()
+    init(httpClient: HTTPClient)
     func fetchDesserts()
     func fetchDessert(id: String)
 }
