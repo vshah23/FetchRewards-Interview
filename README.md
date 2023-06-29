@@ -3,7 +3,7 @@
 ## TODO
 
 - [x] Integrate Bitrise for CI
-- [ ] Create Codable models
+- [x] Create Codable models
 - [ ] Setup Coordinator
 - [ ] Keep dependency injection in mind
 - [ ] TDD
