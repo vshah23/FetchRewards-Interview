@@ -19,6 +19,11 @@
 		1D2F15B72A4CED2200C0FA2D /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2F15B62A4CED2200C0FA2D /* Meal.swift */; };
 		1D2F15B92A4CF57500C0FA2D /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2F15B82A4CF57500C0FA2D /* Recipe.swift */; };
 		1D2F15BB2A4CF59C00C0FA2D /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2F15BA2A4CF59C00C0FA2D /* Menu.swift */; };
+		1D2F15C02A4E24C900C0FA2D /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2F15BF2A4E24C900C0FA2D /* AppCoordinator.swift */; };
+		1D2F15C22A4E24D500C0FA2D /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2F15C12A4E24D500C0FA2D /* Coordinator.swift */; };
+		1D2F15C52A4E272900C0FA2D /* MealRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2F15C42A4E272900C0FA2D /* MealRepository.swift */; };
+		1D2F15C72A4E2BE400C0FA2D /* MealsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2F15C62A4E2BE400C0FA2D /* MealsCoordinator.swift */; };
+		1D2F15CA2A4E2E4300C0FA2D /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2F15C92A4E2E4300C0FA2D /* HTTPClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +60,11 @@
 		1D2F15B62A4CED2200C0FA2D /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
 		1D2F15B82A4CF57500C0FA2D /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		1D2F15BA2A4CF59C00C0FA2D /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
+		1D2F15BF2A4E24C900C0FA2D /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		1D2F15C12A4E24D500C0FA2D /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		1D2F15C42A4E272900C0FA2D /* MealRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealRepository.swift; sourceTree = "<group>"; };
+		1D2F15C62A4E2BE400C0FA2D /* MealsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsCoordinator.swift; sourceTree = "<group>"; };
+		1D2F15C92A4E2E4300C0FA2D /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +115,9 @@
 		1D2F15832A4CC4D000C0FA2D /* FetchRewards-Interview */ = {
 			isa = PBXGroup;
 			children = (
+				1D2F15C82A4E2E3400C0FA2D /* Networking */,
+				1D2F15C32A4E271C00C0FA2D /* Repositories */,
+				1D2F15BE2A4E24B900C0FA2D /* Coordinators */,
 				1D2F15B52A4CEB5E00C0FA2D /* Models */,
 				1D2F15842A4CC4D000C0FA2D /* AppDelegate.swift */,
 				1D2F15862A4CC4D000C0FA2D /* SceneDelegate.swift */,
@@ -142,6 +155,32 @@
 				1D2F15B82A4CF57500C0FA2D /* Recipe.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		1D2F15BE2A4E24B900C0FA2D /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				1D2F15BF2A4E24C900C0FA2D /* AppCoordinator.swift */,
+				1D2F15C12A4E24D500C0FA2D /* Coordinator.swift */,
+				1D2F15C62A4E2BE400C0FA2D /* MealsCoordinator.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		1D2F15C32A4E271C00C0FA2D /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				1D2F15C42A4E272900C0FA2D /* MealRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		1D2F15C82A4E2E3400C0FA2D /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				1D2F15C92A4E2E4300C0FA2D /* HTTPClient.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -275,12 +314,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D2F15C22A4E24D500C0FA2D /* Coordinator.swift in Sources */,
 				1D2F15BB2A4CF59C00C0FA2D /* Menu.swift in Sources */,
 				1D2F15B72A4CED2200C0FA2D /* Meal.swift in Sources */,
+				1D2F15C72A4E2BE400C0FA2D /* MealsCoordinator.swift in Sources */,
 				1D2F15892A4CC4D000C0FA2D /* ViewController.swift in Sources */,
 				1D2F15852A4CC4D000C0FA2D /* AppDelegate.swift in Sources */,
 				1D2F15872A4CC4D000C0FA2D /* SceneDelegate.swift in Sources */,
+				1D2F15CA2A4E2E4300C0FA2D /* HTTPClient.swift in Sources */,
 				1D2F15B92A4CF57500C0FA2D /* Recipe.swift in Sources */,
+				1D2F15C52A4E272900C0FA2D /* MealRepository.swift in Sources */,
+				1D2F15C02A4E24C900C0FA2D /* AppCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
