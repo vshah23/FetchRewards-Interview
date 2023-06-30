@@ -17,6 +17,17 @@ class AppCoordinator: Coordinator {
     }
     
     func start() {
+        showMeals()
     }
     
+    private func showMeals() {
+        let urlSession: URLSession = URLSession(configuration: .default)
+        let httpClient: HTTPClient = HTTPClientImpl(session: urlSession)
+        let mealRepository: MealRepository = MealRepositoryImpl(httpClient: httpClient)
+        let mealsCoordinator: Coordinator = MealsCoordinatorImpl(navigationController: navigationController,
+                                                                  mealRepository: mealRepository)
+        
+        mealsCoordinator.start()
+        childCoordinators.append(mealsCoordinator)
+    }
 }

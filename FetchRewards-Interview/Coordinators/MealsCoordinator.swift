@@ -7,10 +7,26 @@
 
 import UIKit
 
-struct MealsCoordinator: Coordinator {
-    let window: UIWindow
+protocol MealsCoordinator {
+    func mealSelected(id: String)
+}
+
+class MealsCoordinatorImpl: Coordinator, MealsCoordinator {
+    let navigationController: UINavigationController
+    let mealRepository: MealRepository
+    
+    init(navigationController: UINavigationController, mealRepository: MealRepository) {
+        self.navigationController = navigationController
+        self.mealRepository = mealRepository
+    }
     
     func start() {
+        
+        let mealsVC: MealsViewController = MealsViewController()
+        navigationController.pushViewController(mealsVC, animated: false)
+    }
+    
+    func mealSelected(id: String) {
         
     }
 }
