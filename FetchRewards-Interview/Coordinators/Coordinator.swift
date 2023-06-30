@@ -8,6 +8,5 @@
 import UIKit
 
 protocol Coordinator {
-    init(window: UIWindow)
     func start()
 }
