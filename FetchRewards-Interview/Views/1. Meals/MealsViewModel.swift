@@ -14,11 +14,16 @@ enum MealsViewState: Equatable {
     case error(String)
 }
 
-class MealsViewModel {
+protocol MealsViewModel {
+    var state: CurrentValueSubject<MealsViewState, Never> { get }
+    var title: String { get }
+}
+
+class MealsViewModelImpl: MealsViewModel {
     private let mealsRepository: MealRepository
     
-    let state: CurrentValueSubject<MealsViewState, Never> = CurrentValueSubject<MealsViewState, Never>(.loading)
-    let title: String = "Meals"
+    var state: CurrentValueSubject<MealsViewState, Never> = CurrentValueSubject<MealsViewState, Never>(.loading)
+    var title: String = "Meals"
 
     init(mealsRepository: MealRepository) {
         self.mealsRepository = mealsRepository

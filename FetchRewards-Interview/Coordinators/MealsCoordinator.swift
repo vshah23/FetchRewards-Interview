@@ -17,7 +17,7 @@ class MealsCoordinatorImpl: Coordinator {
     }
     
     func start() {
-        let mealsVM: MealsViewModel = MealsViewModel(mealsRepository: mealRepository)
+        let mealsVM: MealsViewModel = MealsViewModelImpl(mealsRepository: mealRepository)
         let mealsVC: MealsViewController = MealsViewController(viewModel: mealsVM, delegate: self)
         navigationController.pushViewController(mealsVC, animated: false)
     }
