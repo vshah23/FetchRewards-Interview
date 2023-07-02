@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-enum MealsViewState: Equatable {
+enum MealsViewState {
     case loading
     case loaded
     case error(String)
