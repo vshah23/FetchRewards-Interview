@@ -7,11 +7,7 @@
 
 import UIKit
 
-protocol MealsCoordinator {
-    func mealSelected(id: String)
-}
-
-class MealsCoordinatorImpl: Coordinator, MealsCoordinator {
+class MealsCoordinatorImpl: Coordinator {
     let navigationController: UINavigationController
     let mealRepository: MealRepository
     
@@ -21,12 +17,35 @@ class MealsCoordinatorImpl: Coordinator, MealsCoordinator {
     }
     
     func start() {
-        
-        let mealsVC: MealsViewController = MealsViewController()
+        let mealsVM: MealsViewModel = MealsViewModel(mealsRepository: mealRepository)
+        let mealsVC: MealsViewController = MealsViewController(viewModel: mealsVM, delegate: self)
         navigationController.pushViewController(mealsVC, animated: false)
+    }
+}
+
+extension MealsCoordinatorImpl: MealsViewControllerDelegate {
+    func loadingData() {
+        showLoader()
+    }
+    
+    func finishedLoadingData() {
+        hideLoader()
+    }
+    
+    func errorLoadingData(errorMessage: String) {
+        hideLoader()
+        showError(errorMessage: errorMessage)
     }
     
     func mealSelected(id: String) {
         
+    }
+}
+
+extension MealsCoordinatorImpl: LoadingScreenShowable, ErrorShowable {    
+    var parentViewController: UIViewController {
+        get {
+            navigationController
+        }
     }
 }
