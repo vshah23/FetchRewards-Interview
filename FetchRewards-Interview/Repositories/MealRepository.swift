@@ -12,3 +12,14 @@ protocol MealRepository {
     func fetchDesserts()
     func fetchDessert(id: String)
 }
+
+struct MealRepositoryImpl: MealRepository {
+    let httpClient: HTTPClient
+    
+    func fetchDesserts() {
+    }
+    
+    func fetchDessert(id: String) {
+    }
+    
+}
