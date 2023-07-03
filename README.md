@@ -12,7 +12,7 @@
 - [ ] Localization
 
 ## Architecture:
-[app_architecture](/app_architecture.png)
+![app_architecture](/app_architecture.png)
 
 ## Room for improvement:
 
