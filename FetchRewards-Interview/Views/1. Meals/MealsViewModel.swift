@@ -11,6 +11,7 @@ import Combine
 enum MealsViewState {
     case loading
     case loaded
+    case noData
     case error(String)
 }
 
@@ -30,7 +31,7 @@ class MealsViewModelImpl: MealsViewModel {
     private let mealsRepository: MealRepository
     var title: String = "Meals"
     
-    @MainActor var state: CurrentValueSubject<MealsViewState, Never> = CurrentValueSubject<MealsViewState, Never>(.loading)
+    @MainActor var state: CurrentValueSubject<MealsViewState, Never> = CurrentValueSubject<MealsViewState, Never>(.noData)
     @MainActor private var meals: [Meal] = []
     
 
@@ -47,7 +48,7 @@ class MealsViewModelImpl: MealsViewModel {
                 .sorted { m1, m2 in m1.strMeal < m2.strMeal }
             await MainActor.run { [weak self] in
                 self?.meals = meals
-                self?.state.value = .loaded
+                self?.state.value = meals.count > 0 ? .loaded : .noData
             }
         } catch {
             self.state.value = .error(ErrorHelper.userFriendlyErrorMessage(for: error))

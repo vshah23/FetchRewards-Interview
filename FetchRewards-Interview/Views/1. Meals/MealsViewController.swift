@@ -39,8 +39,8 @@ class MealsViewController: UITableViewController {
         tableView.refreshControl?.addTarget(self,
                                             action: #selector(refreshData),
                                             for: .valueChanged)
-        tableView.refreshControl?.attributedTitle = NSAttributedString(string: "Fetching Recipes...",
-                                                                      attributes: nil)
+        tableView.refreshControl?.attributedTitle = NSAttributedString(string: "Fetching recipes...",
+                                                                       attributes: nil)
         
         title = viewModel.title
         viewModel.state
@@ -58,7 +58,10 @@ class MealsViewController: UITableViewController {
         refreshData()
         firstLoadKickedOff = true
     }
-    
+}
+
+// MARK: - Datasource
+extension MealsViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -72,7 +75,10 @@ class MealsViewController: UITableViewController {
         cell.textLabel?.text = viewModel.titleForMeal(in: indexPath.row)
         return cell
     }
-    
+}
+
+// MARK: - Delegate
+extension MealsViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         delegate?.mealSelected(id: viewModel.mealId(forMealAt: indexPath.row))
     }
@@ -85,6 +91,8 @@ extension MealsViewController {
             setLoadingState()
         case .loaded:
             setLoadedState()
+        case .noData:
+            setNoDataState()
         case .error(let errorMessage):
             setErrorState(errorMessage)
         }
@@ -97,6 +105,13 @@ extension MealsViewController {
     private func setLoadedState() {
         delegate?.finishedLoadingData()
         tableView.refreshControl?.endRefreshing()
+        tableView.dataSource = self
+        tableView.reloadData()
+    }
+    
+    private func setNoDataState() {
+        tableView.refreshControl?.endRefreshing()
+        setEmptyMessage("No recipes found!")
         tableView.reloadData()
     }
     
@@ -109,6 +124,26 @@ extension MealsViewController {
         Task { [weak self] in
             await self?.viewModel.fetchMeals()
         }
+    }
+    
+    private func setEmptyMessage(_ message: String) {
+        let messageLabel = UILabel(frame: CGRect(x: 0,
+                                                 y: 0,
+                                                 width: tableView.bounds.size.width,
+                                                 height: tableView.bounds.size.height))
+        messageLabel.text = message
+        messageLabel.textColor = .black
+        messageLabel.numberOfLines = 0
+        messageLabel.textAlignment = .center
+        messageLabel.sizeToFit()
+
+        tableView.backgroundView = messageLabel
+        tableView.separatorStyle = .none
+    }
+
+    private func restore() {
+        tableView.backgroundView = nil
+        tableView.separatorStyle = .singleLine
     }
 }
 
