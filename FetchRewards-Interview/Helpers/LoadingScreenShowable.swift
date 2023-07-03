@@ -72,6 +72,7 @@ extension LoadingScreenShowable {
     
     @MainActor
     func hideLoader() async {
+        // https://stackoverflow.com/a/72862970
         // Suspend the current task, and pass its continuation into a closure
         // that executes immediately
         _ = await withUnsafeContinuation { continuation in
