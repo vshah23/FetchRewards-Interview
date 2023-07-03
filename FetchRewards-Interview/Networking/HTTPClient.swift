@@ -37,7 +37,8 @@ final class HTTPClientImpl: HTTPClient {
     
     func performRequest(request: URLRequest) async throws -> Data {
         do {
-            let (data, response): (Data, URLResponse) = try await URLSession.shared.data(for: request)
+            let (data, response): (Data, URLResponse) = try await session.data(for: request,
+                                                                               delegate: nil)
             
             if let response = response as? HTTPURLResponse, 200...299 ~= response.statusCode {
                 return data
@@ -52,11 +53,10 @@ final class HTTPClientImpl: HTTPClient {
             }
         }
     }
-    
 }
 
 extension HTTPClientImpl {
-    func get(_ url: String, queryParams: [URLQueryItem]?) async throws -> Data {
+    func get(_ url: String, queryParams: [URLQueryItem]? = nil) async throws -> Data {
         guard var urlComponents: URLComponents = URLComponents(string: url) else {
             throw HTTPClientError.invalidURL
         }
