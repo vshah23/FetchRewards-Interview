@@ -11,8 +11,6 @@ private enum HTTPMethod: String {
     case GET
 }
 
-typealias HTTPClientResult = Result<HTTPURLResponse, Error>
-
 enum HTTPClientError: Error {
     case invalidURL
     case offline
@@ -20,59 +18,58 @@ enum HTTPClientError: Error {
 }
 
 protocol HTTPClient {
-    init(session: HTTPClientSession?)
-    func get(_ url: String, queryParams: [URLQueryItem]?, completion: @escaping (HTTPClientResult) -> Void)
+    init(session: HTTPClientSession)
+    func get(_ url: String, queryParams: [URLQueryItem]?) async throws -> Data
 }
 
 protocol HTTPClientSession {
-    func dataTask(with request: URLRequest, completionHandler: @escaping @Sendable (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask
+    func data(for request: URLRequest, delegate: (URLSessionTaskDelegate)?) async throws -> (Data, URLResponse)
 }
 
 extension URLSession: HTTPClientSession { }
 
-struct HTTPClientImpl: HTTPClient {
+final class HTTPClientImpl: HTTPClient {
     let session: HTTPClientSession
     
-    init(session: HTTPClientSession?) {
-        guard let session: HTTPClientSession = session else {
-            self.session = URLSession(configuration: .default)
-            return
-        }
-
+    init(session: HTTPClientSession) {
         self.session = session
     }
     
-    func performRequest(request: URLRequest, _ completion: @escaping (HTTPClientResult) -> Void) {
-        session.dataTask(with: request, completionHandler: { (data: Data?, response: URLResponse?, error: Error?) -> Void in
-            if let error: URLError = error as? URLError, error.errorCode == NSURLErrorNotConnectedToInternet {
-                completion(.failure(HTTPClientError.offline))
-            } else if let response: HTTPURLResponse = response as? HTTPURLResponse, 200...299 ~= response.statusCode {
-                completion(.success(response))
+    func performRequest(request: URLRequest) async throws -> Data {
+        do {
+            let (data, response): (Data, URLResponse) = try await URLSession.shared.data(for: request)
+            
+            if let response = response as? HTTPURLResponse, 200...299 ~= response.statusCode {
+                return data
             } else {
-                completion(.failure(HTTPClientError.unknown))
+                throw HTTPClientError.unknown
             }
-        }).resume()
+        } catch {
+            if let error: URLError = error as? URLError, error.errorCode == NSURLErrorNotConnectedToInternet {
+                throw HTTPClientError.offline
+            } else {
+                throw HTTPClientError.unknown
+            }
+        }
     }
     
 }
 
 extension HTTPClientImpl {
-    func get(_ url: String, queryParams: [URLQueryItem]?, completion: @escaping (HTTPClientResult) -> Void) {
+    func get(_ url: String, queryParams: [URLQueryItem]?) async throws -> Data {
         guard var urlComponents: URLComponents = URLComponents(string: url) else {
-            completion(.failure(HTTPClientError.invalidURL))
-            return
+            throw HTTPClientError.invalidURL
         }
         
         urlComponents.queryItems = queryParams
         
         guard let url: URL = urlComponents.url else {
-            completion(.failure(HTTPClientError.invalidURL))
-            return
+            throw HTTPClientError.invalidURL
         }
         
         var request: URLRequest = URLRequest(url: url)
         request.httpMethod = HTTPMethod.GET.rawValue
         
-        performRequest(request: request, completion)
+        return try await performRequest(request: request)
     }
 }
