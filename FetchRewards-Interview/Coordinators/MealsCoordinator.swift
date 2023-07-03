@@ -44,8 +44,24 @@ extension MealsCoordinatorImpl: MealsViewControllerDelegate {
         }
     }
     
+    @MainActor
     func mealSelected(id: String) {
-        
+        showLoader()
+        Task {
+            do {
+                let recipe: Recipe = try await mealRepository.fetchDessert(id: id)
+                let vm: MealDetailsViewModel = MealDetailsViewModelImpl(recipe: recipe)
+                let vc: MealDetailsViewController = MealDetailsViewController(viewModel: vm)
+                await hideLoader()
+                await MainActor.run { [weak self] in
+                    self?.navigationController.pushViewController(vc, animated: true)
+                }
+            } catch {
+                await hideLoader()
+                await MainActor.run { [weak self] in self?.showError(errorMessage: ErrorHelper.userFriendlyErrorMessage(for: error)) }
+            }
+            
+        }
     }
 }
 

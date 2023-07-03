@@ -64,6 +64,6 @@ class MealsViewModelImpl: MealsViewModel {
     
     @MainActor
     func mealId(forMealAt row: Int) -> String {
-        return meals[row].strMeal
+        return meals[row].idMeal
     }
 }

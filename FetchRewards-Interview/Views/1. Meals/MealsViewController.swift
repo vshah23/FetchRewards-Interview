@@ -35,7 +35,6 @@ class MealsViewController: UITableViewController {
         // Do any additional setup after loading the view.
         tableView.register(UITableViewCell.self,
                                 forCellReuseIdentifier: UITableViewCell.reuseIdentifier)
-        tableView.allowsSelection = false
         
         title = viewModel.title
         viewModel.state
