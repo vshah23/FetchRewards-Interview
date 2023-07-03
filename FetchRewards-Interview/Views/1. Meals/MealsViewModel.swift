@@ -47,8 +47,7 @@ class MealsViewModelImpl: MealsViewModel {
                 self?.state.value = .loaded
             }
         } catch {
-            //TODO: Handle errors
-            await self.state.value = .error(error.localizedDescription)
+            await self.state.value = .error(ErrorHelper.userFriendlyErrorMessage(for: error))
         }
     }
     
