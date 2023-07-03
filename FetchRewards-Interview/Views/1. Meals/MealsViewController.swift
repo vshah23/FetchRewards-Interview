@@ -35,6 +35,12 @@ class MealsViewController: UITableViewController {
         // Do any additional setup after loading the view.
         tableView.register(UITableViewCell.self,
                                 forCellReuseIdentifier: UITableViewCell.reuseIdentifier)
+        tableView.refreshControl = UIRefreshControl()
+        tableView.refreshControl?.addTarget(self,
+                                            action: #selector(refreshData),
+                                            for: .valueChanged)
+        tableView.refreshControl?.attributedTitle = NSAttributedString(string: "Fetching Recipes...",
+                                                                      attributes: nil)
         
         title = viewModel.title
         viewModel.state
@@ -88,6 +94,7 @@ extension MealsViewController {
     
     private func setLoadedState() {
         delegate?.finishedLoadingData()
+        tableView.refreshControl?.endRefreshing()
         tableView.reloadData()
     }
     
@@ -95,5 +102,11 @@ extension MealsViewController {
         delegate?.errorLoadingData(errorMessage: errorMessage)
     }
 
+    @objc
+    private func refreshData() {
+        Task { [weak self] in
+            await self?.viewModel.fetchMeals()
+        }
+    }
 }
 

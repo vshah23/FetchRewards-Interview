@@ -18,7 +18,7 @@ protocol MealsViewModel {
     var title: String { get }
     @MainActor var state: CurrentValueSubject<MealsViewState, Never> { get }
 
-    func fetchMeals() async
+    @MainActor func fetchMeals() async
     
     func numberOfMeals() -> Int
     func titleForMeal(in row: Int) -> String
@@ -38,7 +38,9 @@ class MealsViewModelImpl: MealsViewModel {
         self.mealsRepository = mealsRepository
     }
     
+    @MainActor
     func fetchMeals() async {
+        state.value = .loading
         do {
             let meals: [Meal] = try await mealsRepository.fetchDesserts()
                 .filter { meal in !meal.strMeal.isEmpty }
@@ -48,7 +50,7 @@ class MealsViewModelImpl: MealsViewModel {
                 self?.state.value = .loaded
             }
         } catch {
-            await self.state.value = .error(ErrorHelper.userFriendlyErrorMessage(for: error))
+            self.state.value = .error(ErrorHelper.userFriendlyErrorMessage(for: error))
         }
     }
     
