@@ -41,7 +41,9 @@ class MealsViewModelImpl: MealsViewModel {
     func fetchMeals() async {
         do {
             let menu: Menu = try await mealsRepository.fetchDesserts()
-            let meals: [Meal] = menu.meals.sorted { m1, m2 in m1.strMeal < m2.strMeal }
+            let meals: [Meal] = menu.meals
+                .filter { meal in !meal.strMeal.isEmpty }
+                .sorted { m1, m2 in m1.strMeal < m2.strMeal }
             await MainActor.run { [weak self] in
                 self?.meals = meals
                 self?.state.value = .loaded
