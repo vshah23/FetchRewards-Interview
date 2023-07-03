@@ -223,8 +223,8 @@
 		1D2F15D62A4F9C1400C0FA2D /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				1D2F15D72A4F9C2700C0FA2D /* LoadingScreenShowable.swift */,
 				1D2F15D92A4F9DF900C0FA2D /* ErrorShowable.swift */,
+				1D2F15D72A4F9C2700C0FA2D /* LoadingScreenShowable.swift */,
 				1D2F15DF2A52927200C0FA2D /* UITableViewCell+Extensions.swift */,
 			);
 			path = Helpers;

@@ -38,9 +38,12 @@ class MealsViewController: UITableViewController {
         tableView.allowsSelection = false
         
         title = viewModel.title
-        viewModel.state.sink { [weak self] state in
-            self?.update(state: state)
-        }.store(in: &subscriptions)
+        viewModel.state
+            .debounce(for: .milliseconds(300), scheduler: RunLoop.main)
+            . sink { [weak self] state in
+                self?.update(state: state)
+            }
+            .store(in: &subscriptions)
     }
     
     override func viewWillAppear(_ animated: Bool) {

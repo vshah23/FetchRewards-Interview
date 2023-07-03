@@ -24,14 +24,17 @@ class MealsCoordinatorImpl: Coordinator {
 }
 
 extension MealsCoordinatorImpl: MealsViewControllerDelegate {
+    @MainActor
     func loadingData() {
         showLoader()
     }
     
+    @MainActor
     func finishedLoadingData() {
         hideLoader()
     }
     
+    @MainActor
     func errorLoadingData(errorMessage: String) {
         hideLoader()
         showError(errorMessage: errorMessage)
