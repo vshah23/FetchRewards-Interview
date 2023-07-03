@@ -30,7 +30,7 @@ final class MealRepositoryImpl: MealRepository {
         let queryParams: [URLQueryItem] = [URLQueryItem(name: "c", value: "Dessert")]
         let data: Data = try await httpClient.get(url, queryParams: queryParams)
         
-        //TODO decouple JSONDecoder
+        //TODO: decouple JSONDecoder
         return try JSONDecoder().decode(Menu.self, from: data)
     }
     
