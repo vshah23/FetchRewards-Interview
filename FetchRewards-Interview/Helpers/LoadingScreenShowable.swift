@@ -22,34 +22,40 @@ let loaderViewController: UIViewController = {
     loaderView.axis = .vertical
     loaderView.alignment = .center
     loaderView.spacing = UIStackView.spacingUseSystem
+    loaderView.backgroundColor = .gray
+    loaderView.layer.cornerRadius = 10
     loaderView.isLayoutMarginsRelativeArrangement = true
     loaderView.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 20,
                                                                   leading: 20,
                                                                   bottom: 20,
                                                                   trailing: 20)
-    loaderView.backgroundColor = .gray
-    loaderView.layer.cornerRadius = 10
 
+    // setup activity indicator
     let activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView(style: .large)
     activityIndicator.translatesAutoresizingMaskIntoConstraints = false
     activityIndicator.color = .white
     activityIndicator.startAnimating()
     
+    // setup "Loading..." label
     let loadingLabel: UILabel = UILabel()
     loadingLabel.text = "Loading..."
     loadingLabel.textColor = .white
     loadingLabel.numberOfLines = 1
     loadingLabel.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
     
+    // add components to stackview
     loaderView.addArrangedSubview(activityIndicator)
     loaderView.addArrangedSubview(loadingLabel)
     
+    // add the loaderview to our viewcontroller
     vc.view.addSubview(loaderView)
     vc.view.backgroundColor = UIColor.lightGray.withAlphaComponent(0.5)
     
+    // constrain to center
     loaderView.centerXAnchor.constraint(equalTo: vc.view.centerXAnchor).isActive = true
     loaderView.centerYAnchor.constraint(equalTo: vc.view.centerYAnchor).isActive = true
     
+    // set presentation and transition styling
     vc.modalPresentationStyle = .overCurrentContext
     vc.modalTransitionStyle = .crossDissolve
     
