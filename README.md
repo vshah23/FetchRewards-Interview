@@ -1,5 +1,7 @@
 # FetchRewards-Interview
 
+[![Build Status](https://app.bitrise.io/app/0548c39f-ab19-4912-a213-9baa647312b7/status.svg?token=xmeiF9x02Ak3ZpcaA5FO5Q&branch=master)](https://app.bitrise.io/app/0548c39f-ab19-4912-a213-9baa647312b7)
+
 ## TODO
 
 - [x] Integrate Bitrise for CI
