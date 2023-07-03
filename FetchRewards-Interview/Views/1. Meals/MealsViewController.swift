@@ -19,6 +19,7 @@ class MealsViewController: UITableViewController {
     private weak var delegate: MealsViewControllerDelegate?
     private let viewModel: MealsViewModel!
     private var subscriptions: Set<AnyCancellable> = Set<AnyCancellable>()
+    private var firstLoadKickedOff: Bool = false
     
     init(viewModel: MealsViewModel, delegate: MealsViewControllerDelegate? = nil) {
         self.viewModel = viewModel
@@ -44,7 +45,7 @@ class MealsViewController: UITableViewController {
         
         title = viewModel.title
         viewModel.state
-            .debounce(for: .milliseconds(300), scheduler: RunLoop.main)
+            .debounce(for: .milliseconds(500), scheduler: RunLoop.main)
             .receive(on: RunLoop.main)
             . sink { [weak self] state in
                 self?.update(state: state)
@@ -54,7 +55,9 @@ class MealsViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        Task { await viewModel.fetchMeals() }
+        guard !firstLoadKickedOff else { return }
+        refreshData()
+        firstLoadKickedOff = true
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
