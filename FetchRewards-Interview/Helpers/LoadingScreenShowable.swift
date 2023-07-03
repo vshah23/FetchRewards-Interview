@@ -10,7 +10,7 @@ import UIKit
 protocol LoadingScreenShowable: AnyObject {
     var parentViewController: UIViewController { get }
     @MainActor func showLoader()
-    @MainActor func hideLoader(_ completion: (() -> Void)?)
+    @MainActor func hideLoader() async
 }
 
 let loaderViewController: UIViewController = {
@@ -70,7 +70,15 @@ extension LoadingScreenShowable {
     }
     
     @MainActor
-    func hideLoader(_ completion: (() -> Void)?) {
-        loaderViewController.presentingViewController?.dismiss(animated: true, completion: completion)
+    func hideLoader() async {
+        // Suspend the current task, and pass its continuation into a closure
+        // that executes immediately
+        _ = await withUnsafeContinuation { continuation in
+            // Invoke the synchronous callback-based API...
+            loaderViewController.presentingViewController?.dismiss(animated: true) {
+                // ...and resume the continuation when the callback is invoked
+                continuation.resume(returning: true)
+            }
+        }
     }
 }

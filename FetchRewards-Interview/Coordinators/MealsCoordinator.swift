@@ -31,12 +31,15 @@ extension MealsCoordinatorImpl: MealsViewControllerDelegate {
     
     @MainActor
     func finishedLoadingData() {
-        hideLoader(nil)
+        Task { [weak self] in
+            await self?.hideLoader()
+        }
     }
     
     @MainActor
     func errorLoadingData(errorMessage: String) {
-        hideLoader { [weak self] in
+        Task { [weak self] in
+            await self?.hideLoader()
             self?.showError(errorMessage: errorMessage)
         }
     }
