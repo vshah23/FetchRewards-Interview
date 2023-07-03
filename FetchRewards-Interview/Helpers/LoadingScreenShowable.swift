@@ -62,6 +62,7 @@ let loaderViewController: UIViewController = {
     return vc
 }()
 
+// TODO: Allow cancelling loader
 extension LoadingScreenShowable {
     @MainActor
     func showLoader() {
