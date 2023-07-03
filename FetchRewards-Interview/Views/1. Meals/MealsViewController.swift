@@ -34,8 +34,7 @@ class MealsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        tableView.register(UITableViewCell.self,
-                                forCellReuseIdentifier: UITableViewCell.reuseIdentifier)
+        tableView.registerCells(for: self)
         tableView.refreshControl = UIRefreshControl()
         tableView.refreshControl?.addTarget(self,
                                             action: #selector(refreshData),
@@ -113,3 +112,6 @@ extension MealsViewController {
     }
 }
 
+extension MealsViewController: TableViewCellTypeProvider {
+    var cellTypes: [UITableViewCell.Type] { [UITableViewCell.self] }
+}
