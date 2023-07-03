@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct Menu: Codable {
-    let meals: [Meal]
+struct Menu<T: Codable>: Codable {
+    let meals: [T]
 }

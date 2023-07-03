@@ -40,8 +40,7 @@ class MealsViewModelImpl: MealsViewModel {
     
     func fetchMeals() async {
         do {
-            let menu: Menu = try await mealsRepository.fetchDesserts()
-            let meals: [Meal] = menu.meals
+            let meals: [Meal] = try await mealsRepository.fetchDesserts()
                 .filter { meal in !meal.strMeal.isEmpty }
                 .sorted { m1, m2 in m1.strMeal < m2.strMeal }
             await MainActor.run { [weak self] in
