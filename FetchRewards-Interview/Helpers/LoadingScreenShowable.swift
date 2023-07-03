@@ -66,6 +66,7 @@ let loaderViewController: UIViewController = {
 extension LoadingScreenShowable {
     @MainActor
     func showLoader() {
+        guard loaderViewController.isBeingPresented else { return }
         parentViewController.present(loaderViewController, animated: true)
     }
     
