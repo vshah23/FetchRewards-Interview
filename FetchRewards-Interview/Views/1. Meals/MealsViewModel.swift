@@ -45,7 +45,6 @@ class MealsViewModelImpl: MealsViewModel {
             await MainActor.run { [weak self] in
                 self?.meals = meals
                 self?.state.value = .loaded
-                print(meals)
             }
         } catch {
             //TODO: Handle errors
