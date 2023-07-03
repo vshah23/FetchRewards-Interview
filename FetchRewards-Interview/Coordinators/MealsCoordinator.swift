@@ -31,13 +31,14 @@ extension MealsCoordinatorImpl: MealsViewControllerDelegate {
     
     @MainActor
     func finishedLoadingData() {
-        hideLoader()
+        hideLoader(nil)
     }
     
     @MainActor
     func errorLoadingData(errorMessage: String) {
-        hideLoader()
-        showError(errorMessage: errorMessage)
+        hideLoader { [weak self] in
+            self?.showError(errorMessage: errorMessage)
+        }
     }
     
     func mealSelected(id: String) {

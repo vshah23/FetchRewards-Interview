@@ -9,8 +9,8 @@ import UIKit
 
 protocol LoadingScreenShowable: AnyObject {
     var parentViewController: UIViewController { get }
-    func showLoader()
-    func hideLoader()
+    @MainActor func showLoader()
+    @MainActor func hideLoader(_ completion: (() -> Void)?)
 }
 
 let loaderViewController: UIViewController = {
@@ -70,7 +70,7 @@ extension LoadingScreenShowable {
     }
     
     @MainActor
-    func hideLoader() {
-        loaderViewController.presentingViewController?.dismiss(animated: true)
+    func hideLoader(_ completion: (() -> Void)?) {
+        loaderViewController.presentingViewController?.dismiss(animated: true, completion: completion)
     }
 }
