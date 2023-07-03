@@ -8,8 +8,8 @@
 import UIKit
 
 class MealsCoordinatorImpl: Coordinator {
-    let navigationController: UINavigationController
-    let mealRepository: MealRepository
+    private let navigationController: UINavigationController
+    private let mealRepository: MealRepository
     
     init(navigationController: UINavigationController, mealRepository: MealRepository) {
         self.navigationController = navigationController
