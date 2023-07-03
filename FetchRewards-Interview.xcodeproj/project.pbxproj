@@ -32,6 +32,7 @@
 		1D2F15E42A52B04600C0FA2D /* ErrorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2F15E32A52B04600C0FA2D /* ErrorHelper.swift */; };
 		1D2F15EA2A5351C900C0FA2D /* UITableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2F15E92A5351C900C0FA2D /* UITableView+Extensions.swift */; };
 		1D2F15EC2A5353C900C0FA2D /* TableViewCellTypeProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2F15EB2A5353C900C0FA2D /* TableViewCellTypeProvider.swift */; };
+		1D94199B2A537E7400221A0E /* JSONCoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D94199A2A537E7400221A0E /* JSONCoding.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		1D2F15E32A52B04600C0FA2D /* ErrorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHelper.swift; sourceTree = "<group>"; };
 		1D2F15E92A5351C900C0FA2D /* UITableView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extensions.swift"; sourceTree = "<group>"; };
 		1D2F15EB2A5353C900C0FA2D /* TableViewCellTypeProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellTypeProvider.swift; sourceTree = "<group>"; };
+		1D94199A2A537E7400221A0E /* JSONCoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONCoding.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -235,6 +237,7 @@
 				1D2F15EB2A5353C900C0FA2D /* TableViewCellTypeProvider.swift */,
 				1D2F15E92A5351C900C0FA2D /* UITableView+Extensions.swift */,
 				1D2F15DF2A52927200C0FA2D /* UITableViewCell+Extensions.swift */,
+				1D94199A2A537E7400221A0E /* JSONCoding.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -391,6 +394,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D94199B2A537E7400221A0E /* JSONCoding.swift in Sources */,
 				1D2F15D52A4E436F00C0FA2D /* MealDetailsViewModel.swift in Sources */,
 				1D2F15C22A4E24D500C0FA2D /* Coordinator.swift in Sources */,
 				1D2F15D32A4E436600C0FA2D /* MealDetailsViewController.swift in Sources */,

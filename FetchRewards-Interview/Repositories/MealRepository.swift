@@ -8,7 +8,7 @@
 import Foundation
 
 protocol MealRepository {
-    init(httpClient: HTTPClient)
+    init(httpClient: HTTPClient, jsonDecoder: JSONDecoding)
     func fetchDesserts() async throws -> [Meal]
     func fetchDessert(id: String) async throws -> Recipe
 }
@@ -25,9 +25,11 @@ enum MealRepositoryError: Error {
 
 final class MealRepositoryImpl: MealRepository {
     let httpClient: HTTPClient
+    let jsonDecoder: JSONDecoding
 
-    init(httpClient: HTTPClient) {
+    init(httpClient: HTTPClient, jsonDecoder: JSONDecoding) {
         self.httpClient = httpClient
+        self.jsonDecoder = jsonDecoder
     }
 
     func fetchDesserts() async throws -> [Meal] {
@@ -35,8 +37,7 @@ final class MealRepositoryImpl: MealRepository {
         let queryParams: [URLQueryItem] = [URLQueryItem(name: "c", value: "Dessert")]
         let data: Data = try await httpClient.get(url, queryParams: queryParams)
 
-        // TODO: decouple JSONDecoder
-        let menu: Menu<Meal> = try JSONDecoder().decode(Menu<Meal>.self, from: data)
+        let menu: Menu<Meal> = try jsonDecoder.decode(Menu<Meal>.self, from: data)
         return menu.meals
     }
 

@@ -23,7 +23,6 @@ protocol MealsViewModel {
 
     func numberOfMeals() -> Int
     func titleForMeal(in row: Int) -> String
-    // TODO: func thumbnailForMeal(in row: Int) async -> UIImage
     func mealId(forMealAt row: Int) -> String
 }
 
