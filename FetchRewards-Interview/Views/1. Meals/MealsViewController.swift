@@ -39,6 +39,7 @@ class MealsViewController: UITableViewController {
         title = viewModel.title
         viewModel.state
             .debounce(for: .milliseconds(300), scheduler: RunLoop.main)
+            .receive(on: RunLoop.main)
             . sink { [weak self] state in
                 self?.update(state: state)
             }
