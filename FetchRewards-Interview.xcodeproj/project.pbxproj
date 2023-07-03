@@ -29,6 +29,7 @@
 		1D2F15D82A4F9C2700C0FA2D /* LoadingScreenShowable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2F15D72A4F9C2700C0FA2D /* LoadingScreenShowable.swift */; };
 		1D2F15DA2A4F9DF900C0FA2D /* ErrorShowable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2F15D92A4F9DF900C0FA2D /* ErrorShowable.swift */; };
 		1D2F15E02A52927200C0FA2D /* UITableViewCell+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2F15DF2A52927200C0FA2D /* UITableViewCell+Extensions.swift */; };
+		1D2F15E42A52B04600C0FA2D /* ErrorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2F15E32A52B04600C0FA2D /* ErrorHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		1D2F15D72A4F9C2700C0FA2D /* LoadingScreenShowable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingScreenShowable.swift; sourceTree = "<group>"; };
 		1D2F15D92A4F9DF900C0FA2D /* ErrorShowable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorShowable.swift; sourceTree = "<group>"; };
 		1D2F15DF2A52927200C0FA2D /* UITableViewCell+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extensions.swift"; sourceTree = "<group>"; };
+		1D2F15E32A52B04600C0FA2D /* ErrorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,6 +228,7 @@
 				1D2F15D92A4F9DF900C0FA2D /* ErrorShowable.swift */,
 				1D2F15D72A4F9C2700C0FA2D /* LoadingScreenShowable.swift */,
 				1D2F15DF2A52927200C0FA2D /* UITableViewCell+Extensions.swift */,
+				1D2F15E32A52B04600C0FA2D /* ErrorHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -370,6 +373,7 @@
 				1D2F15D12A4E434200C0FA2D /* MealsViewModel.swift in Sources */,
 				1D2F15852A4CC4D000C0FA2D /* AppDelegate.swift in Sources */,
 				1D2F15872A4CC4D000C0FA2D /* SceneDelegate.swift in Sources */,
+				1D2F15E42A52B04600C0FA2D /* ErrorHelper.swift in Sources */,
 				1D2F15CA2A4E2E4300C0FA2D /* HTTPClient.swift in Sources */,
 				1D2F15B92A4CF57500C0FA2D /* Recipe.swift in Sources */,
 				1D2F15C52A4E272900C0FA2D /* MealRepository.swift in Sources */,
