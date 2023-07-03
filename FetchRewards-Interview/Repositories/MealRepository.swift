@@ -25,31 +25,31 @@ enum MealRepositoryError: Error {
 
 final class MealRepositoryImpl: MealRepository {
     let httpClient: HTTPClient
-    
+
     init(httpClient: HTTPClient) {
         self.httpClient = httpClient
     }
-    
+
     func fetchDesserts() async throws -> [Meal] {
         let url: String = MealDBAPI.baseURL + MealDBAPI.filterEndpoint
         let queryParams: [URLQueryItem] = [URLQueryItem(name: "c", value: "Dessert")]
         let data: Data = try await httpClient.get(url, queryParams: queryParams)
-        
-        //TODO: decouple JSONDecoder
+
+        // TODO: decouple JSONDecoder
         let menu: Menu<Meal> = try JSONDecoder().decode(Menu<Meal>.self, from: data)
         return menu.meals
     }
-    
+
     func fetchDessert(id: String) async throws -> Recipe {
         let url: String = MealDBAPI.baseURL + MealDBAPI.recipeLookupEndpoint
         let queryParams: [URLQueryItem] = [URLQueryItem(name: "i", value: id)]
         let data: Data = try await httpClient.get(url, queryParams: queryParams)
-        
+
         let menu: Menu<Recipe> = try JSONDecoder().decode(Menu<Recipe>.self, from: data)
         guard let recipe: Recipe = menu.meals.first else {
             throw MealRepositoryError.badData
         }
-        
+
         return recipe
     }
 }

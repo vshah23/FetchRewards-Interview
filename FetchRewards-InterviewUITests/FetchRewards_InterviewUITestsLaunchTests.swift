@@ -1,5 +1,5 @@
 //
-//  FetchRewards_InterviewUITestsLaunchTests.swift
+//  FetchRewardsInterviewUITestsLaunchTests.swift
 //  FetchRewards-InterviewUITests
 //
 //  Created by Vikas Shah on 6/28/23.
@@ -7,7 +7,7 @@
 
 import XCTest
 
-final class FetchRewards_InterviewUITestsLaunchTests: XCTestCase {
+final class FetchRewardsInterviewUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true

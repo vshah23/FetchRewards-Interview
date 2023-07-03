@@ -14,8 +14,8 @@ protocol LoadingScreenShowable: AnyObject {
 }
 
 let loaderViewController: UIViewController = {
-    let vc: UIViewController = UIViewController()
-    
+    let viewController: UIViewController = UIViewController()
+
     // setup container view
     let loaderView: UIStackView = UIStackView()
     loaderView.translatesAutoresizingMaskIntoConstraints = false
@@ -35,31 +35,31 @@ let loaderViewController: UIViewController = {
     activityIndicator.translatesAutoresizingMaskIntoConstraints = false
     activityIndicator.color = .white
     activityIndicator.startAnimating()
-    
+
     // setup "Loading..." label
     let loadingLabel: UILabel = UILabel()
     loadingLabel.text = "Loading..."
     loadingLabel.textColor = .white
     loadingLabel.numberOfLines = 1
     loadingLabel.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
-    
+
     // add components to stackview
     loaderView.addArrangedSubview(activityIndicator)
     loaderView.addArrangedSubview(loadingLabel)
-    
+
     // add the loaderview to our viewcontroller
-    vc.view.addSubview(loaderView)
-    vc.view.backgroundColor = UIColor.lightGray.withAlphaComponent(0.5)
-    
+    viewController.view.addSubview(loaderView)
+    viewController.view.backgroundColor = UIColor.lightGray.withAlphaComponent(0.5)
+
     // constrain to center
-    loaderView.centerXAnchor.constraint(equalTo: vc.view.centerXAnchor).isActive = true
-    loaderView.centerYAnchor.constraint(equalTo: vc.view.centerYAnchor).isActive = true
-    
+    loaderView.centerXAnchor.constraint(equalTo: viewController.view.centerXAnchor).isActive = true
+    loaderView.centerYAnchor.constraint(equalTo: viewController.view.centerYAnchor).isActive = true
+
     // set presentation and transition styling
-    vc.modalPresentationStyle = .overCurrentContext
-    vc.modalTransitionStyle = .crossDissolve
-    
-    return vc
+    viewController.modalPresentationStyle = .overCurrentContext
+    viewController.modalTransitionStyle = .crossDissolve
+
+    return viewController
 }()
 
 // TODO: Allow cancelling loader
@@ -69,7 +69,7 @@ extension LoadingScreenShowable {
         guard !loaderViewController.isBeingPresented else { return }
         parentViewController.present(loaderViewController, animated: true)
     }
-    
+
     @MainActor
     func hideLoader() async {
         // https://stackoverflow.com/a/72862970

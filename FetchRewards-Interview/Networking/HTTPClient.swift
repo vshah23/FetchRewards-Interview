@@ -30,16 +30,16 @@ extension URLSession: HTTPClientSession { }
 
 final class HTTPClientImpl: HTTPClient {
     let session: HTTPClientSession
-    
+
     init(session: HTTPClientSession) {
         self.session = session
     }
-    
+
     func performRequest(request: URLRequest) async throws -> Data {
         do {
             let (data, response): (Data, URLResponse) = try await session.data(for: request,
                                                                                delegate: nil)
-            
+
             if let response = response as? HTTPURLResponse, 200...299 ~= response.statusCode {
                 return data
             } else {
@@ -60,16 +60,16 @@ extension HTTPClientImpl {
         guard var urlComponents: URLComponents = URLComponents(string: url) else {
             throw HTTPClientError.invalidURL
         }
-        
+
         urlComponents.queryItems = queryParams
-        
+
         guard let url: URL = urlComponents.url else {
             throw HTTPClientError.invalidURL
         }
-        
+
         var request: URLRequest = URLRequest(url: url)
         request.httpMethod = HTTPMethod.GET.rawValue
-        
+
         return try await performRequest(request: request)
     }
 }

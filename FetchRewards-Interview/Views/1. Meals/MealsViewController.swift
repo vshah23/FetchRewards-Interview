@@ -20,17 +20,17 @@ class MealsViewController: UITableViewController {
     private let viewModel: MealsViewModel!
     private var subscriptions: Set<AnyCancellable> = Set<AnyCancellable>()
     private var firstLoadKickedOff: Bool = false
-    
+
     init(viewModel: MealsViewModel, delegate: MealsViewControllerDelegate? = nil) {
         self.viewModel = viewModel
         self.delegate = delegate
         super.init(style: .plain)
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("We're not using storyboards")
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -41,7 +41,7 @@ class MealsViewController: UITableViewController {
                                             for: .valueChanged)
         tableView.refreshControl?.attributedTitle = NSAttributedString(string: "Fetching recipes...",
                                                                        attributes: nil)
-        
+
         title = viewModel.title
         viewModel.state
             .receive(on: RunLoop.main)
@@ -50,7 +50,7 @@ class MealsViewController: UITableViewController {
             }
             .store(in: &subscriptions)
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         guard !firstLoadKickedOff else { return }
@@ -64,13 +64,14 @@ extension MealsViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-    
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         viewModel.numberOfMeals()
     }
-    
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: UITableViewCell.reuseIdentifier, for: indexPath)
+        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: UITableViewCell.reuseIdentifier,
+                                                                  for: indexPath)
         cell.textLabel?.text = viewModel.titleForMeal(in: indexPath.row)
         return cell
     }
@@ -96,11 +97,11 @@ extension MealsViewController {
             setErrorState(errorMessage)
         }
     }
-    
+
     private func setLoadingState() {
         delegate?.loadingData()
     }
-    
+
     private func setLoadedState() {
         delegate?.finishedLoadingData()
         tableView.refreshControl?.endRefreshing()
@@ -108,13 +109,13 @@ extension MealsViewController {
         tableView.dataSource = self
         tableView.reloadData()
     }
-    
+
     private func setNoDataState() {
         tableView.refreshControl?.endRefreshing()
         setEmptyMessage("No recipes found!")
         tableView.reloadData()
     }
-    
+
     private func setErrorState(_ errorMessage: String) {
         delegate?.errorLoadingData(errorMessage: errorMessage)
     }
@@ -125,7 +126,7 @@ extension MealsViewController {
             await self?.viewModel.fetchMeals()
         }
     }
-    
+
     private func setEmptyMessage(_ message: String) {
         let messageLabel = UILabel(frame: CGRect(x: 0,
                                                  y: 0,
@@ -139,7 +140,7 @@ extension MealsViewController {
 
         tableView.backgroundView = messageLabel
     }
-    
+
     private func removeEmptyMessage() {
         tableView.backgroundView = nil
     }

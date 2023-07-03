@@ -13,9 +13,9 @@ protocol MealDetailsViewModel {
 
 class MealDetailsViewModelImpl: MealDetailsViewModel {
     private let recipe: Recipe
-    
+
     var title: String { recipe.strMeal }
-    
+
     init(recipe: Recipe) {
         self.recipe = recipe
     }

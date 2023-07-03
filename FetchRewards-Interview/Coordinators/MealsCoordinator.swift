@@ -10,12 +10,12 @@ import UIKit
 class MealsCoordinatorImpl: Coordinator {
     private let navigationController: UINavigationController
     private let mealRepository: MealRepository
-    
+
     init(navigationController: UINavigationController, mealRepository: MealRepository) {
         self.navigationController = navigationController
         self.mealRepository = mealRepository
     }
-    
+
     func start() {
         let mealsVM: MealsViewModel = MealsViewModelImpl(mealsRepository: mealRepository)
         let mealsVC: MealsViewController = MealsViewController(viewModel: mealsVM, delegate: self)
@@ -28,14 +28,14 @@ extension MealsCoordinatorImpl: MealsViewControllerDelegate {
     func loadingData() {
         showLoader()
     }
-    
+
     @MainActor
     func finishedLoadingData() {
         Task { [weak self] in
             await self?.hideLoader()
         }
     }
-    
+
     @MainActor
     func errorLoadingData(errorMessage: String) {
         Task { [weak self] in
@@ -43,32 +43,30 @@ extension MealsCoordinatorImpl: MealsViewControllerDelegate {
             self?.showError(errorMessage: errorMessage)
         }
     }
-    
+
     @MainActor
     func mealSelected(id: String) {
         showLoader()
         Task {
             do {
                 let recipe: Recipe = try await mealRepository.fetchDessert(id: id)
-                let vm: MealDetailsViewModel = MealDetailsViewModelImpl(recipe: recipe)
-                let vc: MealDetailsViewController = MealDetailsViewController(viewModel: vm)
+                let viewModel: MealDetailsViewModel = MealDetailsViewModelImpl(recipe: recipe)
+                let viewController: MealDetailsViewController = MealDetailsViewController(viewModel: viewModel)
                 await hideLoader()
                 await MainActor.run { [weak self] in
-                    self?.navigationController.pushViewController(vc, animated: true)
+                    self?.navigationController.pushViewController(viewController, animated: true)
                 }
             } catch {
                 await hideLoader()
-                await MainActor.run { [weak self] in self?.showError(errorMessage: ErrorHelper.userFriendlyErrorMessage(for: error)) }
+                await MainActor.run { [weak self] in
+                    self?.showError(errorMessage: ErrorHelper.userFriendlyErrorMessage(for: error))
+                }
             }
-            
+
         }
     }
 }
 
-extension MealsCoordinatorImpl: LoadingScreenShowable, ErrorShowable {    
-    var parentViewController: UIViewController {
-        get {
-            navigationController
-        }
-    }
+extension MealsCoordinatorImpl: LoadingScreenShowable, ErrorShowable {
+    var parentViewController: UIViewController { navigationController }
 }
