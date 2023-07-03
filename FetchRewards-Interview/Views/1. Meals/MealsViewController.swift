@@ -39,6 +39,10 @@ class MealsViewController: UITableViewController {
         }.store(in: &subscriptions)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        Task { await viewModel.fetchMeals() }
+    }
 }
 
 extension MealsViewController {

@@ -9,17 +9,32 @@ import Foundation
 
 protocol MealRepository {
     init(httpClient: HTTPClient)
-    func fetchDesserts()
-    func fetchDessert(id: String)
+    func fetchDesserts() async throws -> Menu
+//    func fetchDessert(id: String) async throws -> Recipe
 }
 
-struct MealRepositoryImpl: MealRepository {
+enum MealDBAPI {
+    static let baseURL: String = "https://themealdb.com/api/json/v1/1"
+    static let filterEndpoint: String = "/filter.php"
+}
+
+final class MealRepositoryImpl: MealRepository {
     let httpClient: HTTPClient
     
-    func fetchDesserts() {
+    init(httpClient: HTTPClient) {
+        self.httpClient = httpClient
     }
     
-    func fetchDessert(id: String) {
+    func fetchDesserts() async throws -> Menu {
+        let url: String = MealDBAPI.baseURL + MealDBAPI.filterEndpoint
+        let queryParams: [URLQueryItem] = [URLQueryItem(name: "c", value: "Dessert")]
+        let data: Data = try await httpClient.get(url, queryParams: queryParams)
+        
+        //TODO decouple JSONDecoder
+        return try JSONDecoder().decode(Menu.self, from: data)
     }
     
+//    func fetchDessert(id: String) async throws -> Recipe {
+//        return Recipe()
+//    }
 }
