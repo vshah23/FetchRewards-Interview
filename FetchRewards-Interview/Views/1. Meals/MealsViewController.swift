@@ -44,9 +44,8 @@ class MealsViewController: UITableViewController {
         
         title = viewModel.title
         viewModel.state
-            .debounce(for: .milliseconds(300), scheduler: RunLoop.main)
             .receive(on: RunLoop.main)
-            . sink { [weak self] state in
+            .sink { [weak self] state in
                 self?.update(state: state)
             }
             .store(in: &subscriptions)
@@ -105,6 +104,7 @@ extension MealsViewController {
     private func setLoadedState() {
         delegate?.finishedLoadingData()
         tableView.refreshControl?.endRefreshing()
+        removeEmptyMessage()
         tableView.dataSource = self
         tableView.reloadData()
     }
@@ -138,12 +138,10 @@ extension MealsViewController {
         messageLabel.sizeToFit()
 
         tableView.backgroundView = messageLabel
-        tableView.separatorStyle = .none
     }
-
-    private func restore() {
+    
+    private func removeEmptyMessage() {
         tableView.backgroundView = nil
-        tableView.separatorStyle = .singleLine
     }
 }
 
