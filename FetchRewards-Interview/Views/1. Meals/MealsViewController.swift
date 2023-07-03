@@ -16,9 +16,9 @@ protocol MealsViewControllerDelegate: AnyObject {
 }
 
 class MealsViewController: UITableViewController {
-    weak var delegate: MealsViewControllerDelegate?
-    let viewModel: MealsViewModel!
-    var subscriptions: Set<AnyCancellable> = Set<AnyCancellable>()
+    private weak var delegate: MealsViewControllerDelegate?
+    private let viewModel: MealsViewModel!
+    private var subscriptions: Set<AnyCancellable> = Set<AnyCancellable>()
     
     init(viewModel: MealsViewModel, delegate: MealsViewControllerDelegate? = nil) {
         self.viewModel = viewModel
@@ -33,6 +33,10 @@ class MealsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        tableView.register(UITableViewCell.self,
+                                forCellReuseIdentifier: UITableViewCell.reuseIdentifier)
+        tableView.allowsSelection = false
+        
         title = viewModel.title
         viewModel.state.sink { [weak self] state in
             self?.update(state: state)
@@ -42,6 +46,24 @@ class MealsViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         Task { await viewModel.fetchMeals() }
+    }
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        viewModel.numberOfMeals()
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: UITableViewCell.reuseIdentifier, for: indexPath)
+        cell.textLabel?.text = viewModel.titleForMeal(in: indexPath.row)
+        return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        delegate?.mealSelected(id: viewModel.mealId(forMealAt: indexPath.row))
     }
 }
 

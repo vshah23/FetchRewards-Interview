@@ -19,6 +19,11 @@ protocol MealsViewModel {
     @MainActor var state: CurrentValueSubject<MealsViewState, Never> { get }
 
     func fetchMeals() async
+    
+    func numberOfMeals() -> Int
+    func titleForMeal(in row: Int) -> String
+    //TODO: func thumbnailForMeal(in row: Int) async -> UIImage
+    func mealId(forMealAt row: Int) -> String
 }
 
 class MealsViewModelImpl: MealsViewModel {
@@ -48,4 +53,18 @@ class MealsViewModelImpl: MealsViewModel {
         }
     }
     
+    @MainActor
+    func numberOfMeals() -> Int {
+        return meals.count
+    }
+    
+    @MainActor
+    func titleForMeal(in row: Int) -> String {
+        return meals[row].strMeal
+    }
+    
+    @MainActor
+    func mealId(forMealAt row: Int) -> String {
+        return meals[row].strMeal
+    }
 }

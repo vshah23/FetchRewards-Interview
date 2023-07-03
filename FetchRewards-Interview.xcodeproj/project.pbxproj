@@ -28,6 +28,7 @@
 		1D2F15D52A4E436F00C0FA2D /* MealDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2F15D42A4E436F00C0FA2D /* MealDetailsViewModel.swift */; };
 		1D2F15D82A4F9C2700C0FA2D /* LoadingScreenShowable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2F15D72A4F9C2700C0FA2D /* LoadingScreenShowable.swift */; };
 		1D2F15DA2A4F9DF900C0FA2D /* ErrorShowable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2F15D92A4F9DF900C0FA2D /* ErrorShowable.swift */; };
+		1D2F15E02A52927200C0FA2D /* UITableViewCell+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2F15DF2A52927200C0FA2D /* UITableViewCell+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		1D2F15D42A4E436F00C0FA2D /* MealDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailsViewModel.swift; sourceTree = "<group>"; };
 		1D2F15D72A4F9C2700C0FA2D /* LoadingScreenShowable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingScreenShowable.swift; sourceTree = "<group>"; };
 		1D2F15D92A4F9DF900C0FA2D /* ErrorShowable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorShowable.swift; sourceTree = "<group>"; };
+		1D2F15DF2A52927200C0FA2D /* UITableViewCell+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,6 +225,7 @@
 			children = (
 				1D2F15D72A4F9C2700C0FA2D /* LoadingScreenShowable.swift */,
 				1D2F15D92A4F9DF900C0FA2D /* ErrorShowable.swift */,
+				1D2F15DF2A52927200C0FA2D /* UITableViewCell+Extensions.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -373,6 +376,7 @@
 				1D2F15D82A4F9C2700C0FA2D /* LoadingScreenShowable.swift in Sources */,
 				1D2F15DA2A4F9DF900C0FA2D /* ErrorShowable.swift in Sources */,
 				1D2F15C02A4E24C900C0FA2D /* AppCoordinator.swift in Sources */,
+				1D2F15E02A52927200C0FA2D /* UITableViewCell+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
