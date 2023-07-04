@@ -1,0 +1,33 @@
+{
+  "configurations" : [
+    {
+      "id" : "AFBFDF2D-BF8B-4E8B-9C4D-7A2A4C4C09D9",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : {
+      "targets" : [
+        {
+          "containerPath" : "container:FetchRewards-Interview.xcodeproj",
+          "identifier" : "1D2F15802A4CC4D000C0FA2D",
+          "name" : "FetchRewards-Interview"
+        }
+      ]
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:FetchRewards-Interview.xcodeproj",
+        "identifier" : "1D2F15962A4CC4D100C0FA2D",
+        "name" : "FetchRewards-InterviewTests"
+      }
+    }
+  ],
+  "version" : 1
+}
