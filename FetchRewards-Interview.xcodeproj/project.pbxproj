@@ -12,10 +12,9 @@
 		1D2F15892A4CC4D000C0FA2D /* MealsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2F15882A4CC4D000C0FA2D /* MealsViewController.swift */; };
 		1D2F158E2A4CC4D100C0FA2D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D2F158D2A4CC4D100C0FA2D /* Assets.xcassets */; };
 		1D2F15912A4CC4D100C0FA2D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D2F158F2A4CC4D100C0FA2D /* LaunchScreen.storyboard */; };
-		1D2F159C2A4CC4D100C0FA2D /* FetchRewards_InterviewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2F159B2A4CC4D100C0FA2D /* FetchRewards_InterviewTests.swift */; };
-		1D2F15A62A4CC4D100C0FA2D /* FetchRewards_InterviewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2F15A52A4CC4D100C0FA2D /* FetchRewards_InterviewUITests.swift */; };
-		1D2F15A82A4CC4D100C0FA2D /* FetchRewards_InterviewUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2F15A72A4CC4D100C0FA2D /* FetchRewards_InterviewUITestsLaunchTests.swift */; };
-		1D2F15B72A4CED2200C0FA2D /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2F15B62A4CED2200C0FA2D /* Meal.swift */; };
+		1D2F159C2A4CC4D100C0FA2D /* FetchRewardsInterviewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2F159B2A4CC4D100C0FA2D /* FetchRewardsInterviewTests.swift */; };
+		1D2F15A62A4CC4D100C0FA2D /* FetchRewardsInterviewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2F15A52A4CC4D100C0FA2D /* FetchRewardsInterviewUITests.swift */; };
+		1D2F15A82A4CC4D100C0FA2D /* FetchRewardsInterviewUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2F15A72A4CC4D100C0FA2D /* FetchRewardsInterviewUITestsLaunchTests.swift */; };
 		1D2F15B92A4CF57500C0FA2D /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2F15B82A4CF57500C0FA2D /* Recipe.swift */; };
 		1D2F15BB2A4CF59C00C0FA2D /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2F15BA2A4CF59C00C0FA2D /* Menu.swift */; };
 		1D2F15C02A4E24C900C0FA2D /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2F15BF2A4E24C900C0FA2D /* AppCoordinator.swift */; };
@@ -61,11 +60,10 @@
 		1D2F15902A4CC4D100C0FA2D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1D2F15922A4CC4D100C0FA2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1D2F15972A4CC4D100C0FA2D /* FetchRewards-InterviewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FetchRewards-InterviewTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		1D2F159B2A4CC4D100C0FA2D /* FetchRewards_InterviewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchRewards_InterviewTests.swift; sourceTree = "<group>"; };
+		1D2F159B2A4CC4D100C0FA2D /* FetchRewardsInterviewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchRewardsInterviewTests.swift; sourceTree = "<group>"; };
 		1D2F15A12A4CC4D100C0FA2D /* FetchRewards-InterviewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FetchRewards-InterviewUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		1D2F15A52A4CC4D100C0FA2D /* FetchRewards_InterviewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchRewards_InterviewUITests.swift; sourceTree = "<group>"; };
-		1D2F15A72A4CC4D100C0FA2D /* FetchRewards_InterviewUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchRewards_InterviewUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		1D2F15B62A4CED2200C0FA2D /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
+		1D2F15A52A4CC4D100C0FA2D /* FetchRewardsInterviewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchRewardsInterviewUITests.swift; sourceTree = "<group>"; };
+		1D2F15A72A4CC4D100C0FA2D /* FetchRewardsInterviewUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchRewardsInterviewUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		1D2F15B82A4CF57500C0FA2D /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		1D2F15BA2A4CF59C00C0FA2D /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		1D2F15BF2A4E24C900C0FA2D /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
@@ -151,7 +149,7 @@
 		1D2F159A2A4CC4D100C0FA2D /* FetchRewards-InterviewTests */ = {
 			isa = PBXGroup;
 			children = (
-				1D2F159B2A4CC4D100C0FA2D /* FetchRewards_InterviewTests.swift */,
+				1D2F159B2A4CC4D100C0FA2D /* FetchRewardsInterviewTests.swift */,
 			);
 			path = "FetchRewards-InterviewTests";
 			sourceTree = "<group>";
@@ -159,8 +157,8 @@
 		1D2F15A42A4CC4D100C0FA2D /* FetchRewards-InterviewUITests */ = {
 			isa = PBXGroup;
 			children = (
-				1D2F15A52A4CC4D100C0FA2D /* FetchRewards_InterviewUITests.swift */,
-				1D2F15A72A4CC4D100C0FA2D /* FetchRewards_InterviewUITestsLaunchTests.swift */,
+				1D2F15A52A4CC4D100C0FA2D /* FetchRewardsInterviewUITests.swift */,
+				1D2F15A72A4CC4D100C0FA2D /* FetchRewardsInterviewUITestsLaunchTests.swift */,
 			);
 			path = "FetchRewards-InterviewUITests";
 			sourceTree = "<group>";
@@ -168,7 +166,6 @@
 		1D2F15B52A4CEB5E00C0FA2D /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				1D2F15B62A4CED2200C0FA2D /* Meal.swift */,
 				1D2F15BA2A4CF59C00C0FA2D /* Menu.swift */,
 				1D2F15B82A4CF57500C0FA2D /* Recipe.swift */,
 			);
@@ -399,7 +396,6 @@
 				1D2F15C22A4E24D500C0FA2D /* Coordinator.swift in Sources */,
 				1D2F15D32A4E436600C0FA2D /* MealDetailsViewController.swift in Sources */,
 				1D2F15BB2A4CF59C00C0FA2D /* Menu.swift in Sources */,
-				1D2F15B72A4CED2200C0FA2D /* Meal.swift in Sources */,
 				1D2F15C72A4E2BE400C0FA2D /* MealsCoordinator.swift in Sources */,
 				1D2F15892A4CC4D000C0FA2D /* MealsViewController.swift in Sources */,
 				1D2F15EC2A5353C900C0FA2D /* TableViewCellTypeProvider.swift in Sources */,
@@ -422,7 +418,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1D2F159C2A4CC4D100C0FA2D /* FetchRewards_InterviewTests.swift in Sources */,
+				1D2F159C2A4CC4D100C0FA2D /* FetchRewardsInterviewTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -430,8 +426,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1D2F15A82A4CC4D100C0FA2D /* FetchRewards_InterviewUITestsLaunchTests.swift in Sources */,
-				1D2F15A62A4CC4D100C0FA2D /* FetchRewards_InterviewUITests.swift in Sources */,
+				1D2F15A82A4CC4D100C0FA2D /* FetchRewardsInterviewUITestsLaunchTests.swift in Sources */,
+				1D2F15A62A4CC4D100C0FA2D /* FetchRewardsInterviewUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
