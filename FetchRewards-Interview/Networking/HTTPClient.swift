@@ -29,13 +29,13 @@ protocol HTTPClientSession {
 extension URLSession: HTTPClientSession { }
 
 final class HTTPClientImpl: HTTPClient {
-    let session: HTTPClientSession
+    private let session: HTTPClientSession
 
     init(session: HTTPClientSession) {
         self.session = session
     }
 
-    func performRequest(request: URLRequest) async throws -> Data {
+    private func performRequest(request: URLRequest) async throws -> Data {
         do {
             let (data, response): (Data, URLResponse) = try await session.data(for: request,
                                                                                delegate: nil)
