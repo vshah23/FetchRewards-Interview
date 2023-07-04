@@ -9,7 +9,7 @@ import Foundation
 
 protocol MealRepository {
     init(httpClient: HTTPClient, jsonDecoder: JSONDecoding)
-    func fetchDesserts() async throws -> [Meal]
+    func fetchDesserts() async throws -> [Recipe]
     func fetchDessert(id: String) async throws -> Recipe
 }
 
@@ -32,12 +32,12 @@ final class MealRepositoryImpl: MealRepository {
         self.jsonDecoder = jsonDecoder
     }
 
-    func fetchDesserts() async throws -> [Meal] {
+    func fetchDesserts() async throws -> [Recipe] {
         let url: String = MealDBAPI.baseURL + MealDBAPI.filterEndpoint
         let queryParams: [URLQueryItem] = [URLQueryItem(name: "c", value: "Dessert")]
         let data: Data = try await httpClient.get(url, queryParams: queryParams)
 
-        let menu: Menu<Meal> = try jsonDecoder.decode(Menu<Meal>.self, from: data)
+        let menu: Menu<Recipe> = try jsonDecoder.decode(Menu<Recipe>.self, from: data)
         return menu.meals
     }
 

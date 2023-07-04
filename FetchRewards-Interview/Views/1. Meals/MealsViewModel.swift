@@ -31,7 +31,7 @@ class MealsViewModelImpl: MealsViewModel {
     var title: String = "Meals"
 
     @MainActor var state: CurrentValueSubject<MealsViewState, Never>
-    @MainActor private var meals: [Meal]
+    @MainActor private var meals: [Recipe]
 
     init(mealsRepository: MealRepository) {
         self.mealsRepository = mealsRepository
@@ -43,7 +43,7 @@ class MealsViewModelImpl: MealsViewModel {
     func fetchMeals() async {
         state.value = .loading
         do {
-            let meals: [Meal] = try await mealsRepository.fetchDesserts()
+            let meals: [Recipe] = try await mealsRepository.fetchDesserts()
                 .filter { meal in !meal.strMeal.isEmpty }
                 .sorted { meal1, meal2 in meal1.strMeal < meal2.strMeal }
             await MainActor.run { [weak self] in
