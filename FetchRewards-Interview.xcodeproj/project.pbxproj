@@ -12,7 +12,6 @@
 		1D2F15892A4CC4D000C0FA2D /* MealsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2F15882A4CC4D000C0FA2D /* MealsViewController.swift */; };
 		1D2F158E2A4CC4D100C0FA2D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D2F158D2A4CC4D100C0FA2D /* Assets.xcassets */; };
 		1D2F15912A4CC4D100C0FA2D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D2F158F2A4CC4D100C0FA2D /* LaunchScreen.storyboard */; };
-		1D2F159C2A4CC4D100C0FA2D /* FetchRewardsInterviewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2F159B2A4CC4D100C0FA2D /* FetchRewardsInterviewTests.swift */; };
 		1D2F15A62A4CC4D100C0FA2D /* FetchRewardsInterviewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2F15A52A4CC4D100C0FA2D /* FetchRewardsInterviewUITests.swift */; };
 		1D2F15A82A4CC4D100C0FA2D /* FetchRewardsInterviewUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2F15A72A4CC4D100C0FA2D /* FetchRewardsInterviewUITestsLaunchTests.swift */; };
 		1D2F15B92A4CF57500C0FA2D /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2F15B82A4CF57500C0FA2D /* Recipe.swift */; };
@@ -63,7 +62,6 @@
 		1D2F15902A4CC4D100C0FA2D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1D2F15922A4CC4D100C0FA2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1D2F15972A4CC4D100C0FA2D /* FetchRewards-InterviewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FetchRewards-InterviewTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		1D2F159B2A4CC4D100C0FA2D /* FetchRewardsInterviewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchRewardsInterviewTests.swift; sourceTree = "<group>"; };
 		1D2F15A12A4CC4D100C0FA2D /* FetchRewards-InterviewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FetchRewards-InterviewUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D2F15A52A4CC4D100C0FA2D /* FetchRewardsInterviewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchRewardsInterviewUITests.swift; sourceTree = "<group>"; };
 		1D2F15A72A4CC4D100C0FA2D /* FetchRewardsInterviewUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchRewardsInterviewUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -153,7 +151,6 @@
 		1D2F159A2A4CC4D100C0FA2D /* FetchRewards-InterviewTests */ = {
 			isa = PBXGroup;
 			children = (
-				1D2F159B2A4CC4D100C0FA2D /* FetchRewardsInterviewTests.swift */,
 				1D94199C2A539AA600221A0E /* ErrorHelperTests.swift */,
 			);
 			path = "FetchRewards-InterviewTests";
@@ -427,7 +424,6 @@
 				1D94199D2A539AA600221A0E /* ErrorHelperTests.swift in Sources */,
 				1D94199E2A53CD9F00221A0E /* ErrorHelper.swift in Sources */,
 				1D94199F2A53CDD500221A0E /* HTTPClient.swift in Sources */,
-				1D2F159C2A4CC4D100C0FA2D /* FetchRewardsInterviewTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
