@@ -246,7 +246,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1D2F15AB2A4CC4D100C0FA2D /* Build configuration list for PBXNativeTarget "FetchRewards-Interview" */;
 			buildPhases = (
-				1D2F15EF2A5377F600C0FA2D /* ShellScript */,
+				1D2F15EF2A5377F600C0FA2D /* SwiftLint */,
 				1D2F157D2A4CC4D000C0FA2D /* Sources */,
 				1D2F157E2A4CC4D000C0FA2D /* Frameworks */,
 				1D2F157F2A4CC4D000C0FA2D /* Resources */,
@@ -366,7 +366,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1D2F15EF2A5377F600C0FA2D /* ShellScript */ = {
+		1D2F15EF2A5377F600C0FA2D /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
@@ -376,13 +376,14 @@
 			);
 			inputPaths = (
 			);
+			name = SwiftLint;
 			outputFileListPaths = (
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "## begin\nif [ `uname -m` == 'arm64' ] && [ -d /opt/homebrew/bin/ ]; then\n  export PATH=/opt/homebrew/bin:$PATH\nfi\n## end\n\nif which mint >/dev/null; then\n    mint run realm/SwiftLint@0.52.3 autocorrect --format\n    mint run realm/SwiftLint@0.52.3\nelse\n    echo \"warning: Mint not installed, download from https://github.com/yonaskolb/Mint\"\nfi\n";
+			shellScript = "if [ \"$CI\" = true ]; then\n    echo \"CI mode detected. Skipping SwiftLint\"\n    exit 0\nfi\n\nif [ `uname -m` == 'arm64' ] && [ -d /opt/homebrew/bin/ ]; then\n  export PATH=/opt/homebrew/bin:$PATH\nfi\n\nif which mint >/dev/null; then\n    mint run realm/SwiftLint@0.52.3 autocorrect --format\n    mint run realm/SwiftLint@0.52.3\nelse\n    echo \"warning: Mint not installed, download from https://github.com/yonaskolb/Mint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
