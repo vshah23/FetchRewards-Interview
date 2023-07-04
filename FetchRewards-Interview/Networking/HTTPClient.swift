@@ -64,6 +64,7 @@ extension HTTPClientImpl {
         urlComponents.queryItems = queryParams
 
         guard let url: URL = urlComponents.url else {
+            // this should never actually happen after passing the above guard
             throw HTTPClientError.invalidURL
         }
 

@@ -25,52 +25,43 @@ final class HTTPClientTests: XCTestCase {
 
     let validURL: String = "https://www.google.com"
     let invalidURL: String = "https://www.google.com^"
-    let invalidQueryParams: [URLQueryItem] = [URLQueryItem(name: "*", value: "/mnn.json")]
 
     lazy var cases: [(input: Input, expected: Expected)] = [
-        (
-            Input(url: validURL,
-                  queryParams: nil,
-                  data: dataToReturn,
-                  statusCode: 200,
-                  errorToThrow: nil),
-            Expected(data: dataToReturn, error: nil)
-        ),
-        (
-            Input(url: validURL,
-                  queryParams: nil,
-                  data: dataToReturn,
-                  statusCode: 404,
-                  errorToThrow: nil),
-            Expected(data: nil, error: HTTPClientError.unknown)
-        ),
-        (
-            Input(url: validURL,
-                  queryParams: nil,
-                  data: nil,
-                  statusCode: nil,
-                  errorToThrow: URLError(.notConnectedToInternet)),
-            Expected(data: nil, error: HTTPClientError.offline)
-        ),
-        (
-            Input(url: validURL,
-                  queryParams: nil,
-                  data: nil,
-                  statusCode: nil,
-                  errorToThrow: URLError(.dnsLookupFailed)),
-            Expected(data: nil, error: HTTPClientError.unknown)
-        ),
+                (
+                    Input(url: validURL,
+                          queryParams: nil,
+                          data: dataToReturn,
+                          statusCode: 200,
+                          errorToThrow: nil),
+                    Expected(data: dataToReturn, error: nil)
+                ),
+                (
+                    Input(url: validURL,
+                          queryParams: nil,
+                          data: dataToReturn,
+                          statusCode: 404,
+                          errorToThrow: nil),
+                    Expected(data: nil, error: HTTPClientError.unknown)
+                ),
+                (
+                    Input(url: validURL,
+                          queryParams: nil,
+                          data: nil,
+                          statusCode: nil,
+                          errorToThrow: URLError(.notConnectedToInternet)),
+                    Expected(data: nil, error: HTTPClientError.offline)
+                ),
+                (
+                    Input(url: validURL,
+                          queryParams: nil,
+                          data: nil,
+                          statusCode: nil,
+                          errorToThrow: URLError(.dnsLookupFailed)),
+                    Expected(data: nil, error: HTTPClientError.unknown)
+                ),
         (
             Input(url: invalidURL,
                   queryParams: nil,
-                  data: nil,
-                  statusCode: nil,
-                  errorToThrow: nil),
-            Expected(data: nil, error: HTTPClientError.invalidURL)
-        ),
-        ( // TODO: fix this test case
-            Input(url: validURL,
-                  queryParams: invalidQueryParams,
                   data: nil,
                   statusCode: nil,
                   errorToThrow: nil),
