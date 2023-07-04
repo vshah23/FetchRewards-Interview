@@ -32,6 +32,9 @@
 		1D2F15EA2A5351C900C0FA2D /* UITableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2F15E92A5351C900C0FA2D /* UITableView+Extensions.swift */; };
 		1D2F15EC2A5353C900C0FA2D /* TableViewCellTypeProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2F15EB2A5353C900C0FA2D /* TableViewCellTypeProvider.swift */; };
 		1D94199B2A537E7400221A0E /* JSONCoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D94199A2A537E7400221A0E /* JSONCoding.swift */; };
+		1D94199D2A539AA600221A0E /* ErrorHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D94199C2A539AA600221A0E /* ErrorHelperTests.swift */; };
+		1D94199E2A53CD9F00221A0E /* ErrorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2F15E32A52B04600C0FA2D /* ErrorHelper.swift */; };
+		1D94199F2A53CDD500221A0E /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2F15C92A4E2E4300C0FA2D /* HTTPClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +84,7 @@
 		1D2F15E92A5351C900C0FA2D /* UITableView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extensions.swift"; sourceTree = "<group>"; };
 		1D2F15EB2A5353C900C0FA2D /* TableViewCellTypeProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellTypeProvider.swift; sourceTree = "<group>"; };
 		1D94199A2A537E7400221A0E /* JSONCoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONCoding.swift; sourceTree = "<group>"; };
+		1D94199C2A539AA600221A0E /* ErrorHelperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHelperTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				1D2F159B2A4CC4D100C0FA2D /* FetchRewardsInterviewTests.swift */,
+				1D94199C2A539AA600221A0E /* ErrorHelperTests.swift */,
 			);
 			path = "FetchRewards-InterviewTests";
 			sourceTree = "<group>";
@@ -230,11 +235,11 @@
 			children = (
 				1D2F15E32A52B04600C0FA2D /* ErrorHelper.swift */,
 				1D2F15D92A4F9DF900C0FA2D /* ErrorShowable.swift */,
+				1D94199A2A537E7400221A0E /* JSONCoding.swift */,
 				1D2F15D72A4F9C2700C0FA2D /* LoadingScreenShowable.swift */,
 				1D2F15EB2A5353C900C0FA2D /* TableViewCellTypeProvider.swift */,
 				1D2F15E92A5351C900C0FA2D /* UITableView+Extensions.swift */,
 				1D2F15DF2A52927200C0FA2D /* UITableViewCell+Extensions.swift */,
-				1D94199A2A537E7400221A0E /* JSONCoding.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -419,6 +424,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D94199D2A539AA600221A0E /* ErrorHelperTests.swift in Sources */,
+				1D94199E2A53CD9F00221A0E /* ErrorHelper.swift in Sources */,
+				1D94199F2A53CDD500221A0E /* HTTPClient.swift in Sources */,
 				1D2F159C2A4CC4D100C0FA2D /* FetchRewardsInterviewTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
