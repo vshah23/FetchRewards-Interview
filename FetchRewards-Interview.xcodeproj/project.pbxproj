@@ -145,6 +145,7 @@
 				1D2F15922A4CC4D100C0FA2D /* Info.plist */,
 				1D2F15842A4CC4D000C0FA2D /* AppDelegate.swift */,
 				1D2F15862A4CC4D000C0FA2D /* SceneDelegate.swift */,
+				1DF2F51B2A53E5EC007AD662 /* main.swift */,
 				1D2F158D2A4CC4D100C0FA2D /* Assets.xcassets */,
 				1D2F158F2A4CC4D100C0FA2D /* LaunchScreen.storyboard */,
 				1D2F15BE2A4E24B900C0FA2D /* Coordinators */,
@@ -153,7 +154,6 @@
 				1D2F15C82A4E2E3400C0FA2D /* Networking */,
 				1D2F15C32A4E271C00C0FA2D /* Repositories */,
 				1D2F15CD2A4E428B00C0FA2D /* Views */,
-				1DF2F51B2A53E5EC007AD662 /* main.swift */,
 			);
 			path = "FetchRewards-Interview";
 			sourceTree = "<group>";
@@ -164,8 +164,8 @@
 				1DF2F51A2A53D60D007AD662 /* FetchRewards-InterviewTests.xctestplan */,
 				1D94199C2A539AA600221A0E /* ErrorHelperTests.swift */,
 				1DF2F51D2A53E64D007AD662 /* TestingAppDelegate.swift */,
-				1DF2F51F2A53E6B7007AD662 /* TestingSceneDelegate.swift */,
 				1DF2F5212A53E7E0007AD662 /* TestingRootViewController.swift */,
+				1DF2F51F2A53E6B7007AD662 /* TestingSceneDelegate.swift */,
 			);
 			path = "FetchRewards-InterviewTests";
 			sourceTree = "<group>";
