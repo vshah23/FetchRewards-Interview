@@ -20,7 +20,7 @@ enum MealDBAPI {
 }
 
 enum MealRepositoryError: Error {
-    case badData
+    case recipeNotFound
 }
 
 final class MealRepositoryImpl: MealRepository {
@@ -48,7 +48,7 @@ final class MealRepositoryImpl: MealRepository {
 
         let menu: Menu<Recipe> = try JSONDecoder().decode(Menu<Recipe>.self, from: data)
         guard let recipe: Recipe = menu.meals.first else {
-            throw MealRepositoryError.badData
+            throw MealRepositoryError.recipeNotFound
         }
 
         return recipe
