@@ -23,4 +23,4 @@ final class ErrorHelperTests: XCTestCase {
         XCTAssertEqual(message, "Sorry, something went wrong. Please try again.")
     }
 
- }
+}
