@@ -8,6 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		1D07874C2A53EF2A00547484 /* HTTPClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D07874B2A53EF2A00547484 /* HTTPClientTests.swift */; };
+		1D07874F2A54A92400547484 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2F15B82A4CF57500C0FA2D /* Recipe.swift */; };
+		1D0787512A54AE4300547484 /* MealsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D0787502A54AE4300547484 /* MealsViewControllerTests.swift */; };
+		1D0787522A54AE6300547484 /* MealsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2F15882A4CC4D000C0FA2D /* MealsViewController.swift */; };
+		1D0787532A54AE9E00547484 /* MealsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2F15D02A4E434200C0FA2D /* MealsViewModel.swift */; };
+		1D0787542A54B35500547484 /* TableViewCellTypeProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2F15EB2A5353C900C0FA2D /* TableViewCellTypeProvider.swift */; };
+		1D0787552A54B36700547484 /* UITableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2F15E92A5351C900C0FA2D /* UITableView+Extensions.swift */; };
+		1D0787562A54B38000547484 /* UITableViewCell+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2F15DF2A52927200C0FA2D /* UITableViewCell+Extensions.swift */; };
+		1D0787572A54B38F00547484 /* MealRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2F15C42A4E272900C0FA2D /* MealRepository.swift */; };
+		1D0787582A54B39B00547484 /* JSONCoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D94199A2A537E7400221A0E /* JSONCoding.swift */; };
+		1D0787592A54B3AC00547484 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2F15BA2A4CF59C00C0FA2D /* Menu.swift */; };
 		1D2F15852A4CC4D000C0FA2D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2F15842A4CC4D000C0FA2D /* AppDelegate.swift */; };
 		1D2F15872A4CC4D000C0FA2D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2F15862A4CC4D000C0FA2D /* SceneDelegate.swift */; };
 		1D2F15892A4CC4D000C0FA2D /* MealsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2F15882A4CC4D000C0FA2D /* MealsViewController.swift */; };
@@ -60,6 +70,7 @@
 
 /* Begin PBXFileReference section */
 		1D07874B2A53EF2A00547484 /* HTTPClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClientTests.swift; sourceTree = "<group>"; };
+		1D0787502A54AE4300547484 /* MealsViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsViewControllerTests.swift; sourceTree = "<group>"; };
 		1D2F15812A4CC4D000C0FA2D /* FetchRewards-Interview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FetchRewards-Interview.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D2F15842A4CC4D000C0FA2D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1D2F15862A4CC4D000C0FA2D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -121,6 +132,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D07875A2A54DD6700547484 /* Testing Environment */ = {
+			isa = PBXGroup;
+			children = (
+				1DF2F51D2A53E64D007AD662 /* TestingAppDelegate.swift */,
+				1DF2F5212A53E7E0007AD662 /* TestingRootViewController.swift */,
+				1DF2F51F2A53E6B7007AD662 /* TestingSceneDelegate.swift */,
+			);
+			path = "Testing Environment";
+			sourceTree = "<group>";
+		};
 		1D2F15782A4CC4D000C0FA2D = {
 			isa = PBXGroup;
 			children = (
@@ -166,9 +187,8 @@
 				1DF2F51A2A53D60D007AD662 /* FetchRewards-InterviewTests.xctestplan */,
 				1D94199C2A539AA600221A0E /* ErrorHelperTests.swift */,
 				1D07874B2A53EF2A00547484 /* HTTPClientTests.swift */,
-				1DF2F51D2A53E64D007AD662 /* TestingAppDelegate.swift */,
-				1DF2F5212A53E7E0007AD662 /* TestingRootViewController.swift */,
-				1DF2F51F2A53E6B7007AD662 /* TestingSceneDelegate.swift */,
+				1D0787502A54AE4300547484 /* MealsViewControllerTests.swift */,
+				1D07875A2A54DD6700547484 /* Testing Environment */,
 			);
 			path = "FetchRewards-InterviewTests";
 			sourceTree = "<group>";
@@ -439,13 +459,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D0787512A54AE4300547484 /* MealsViewControllerTests.swift in Sources */,
 				1D94199D2A539AA600221A0E /* ErrorHelperTests.swift in Sources */,
 				1DF2F51E2A53E64D007AD662 /* TestingAppDelegate.swift in Sources */,
 				1DF2F5202A53E6B7007AD662 /* TestingSceneDelegate.swift in Sources */,
+				1D0787562A54B38000547484 /* UITableViewCell+Extensions.swift in Sources */,
 				1D07874C2A53EF2A00547484 /* HTTPClientTests.swift in Sources */,
 				1D94199E2A53CD9F00221A0E /* ErrorHelper.swift in Sources */,
 				1D94199F2A53CDD500221A0E /* HTTPClient.swift in Sources */,
+				1D0787522A54AE6300547484 /* MealsViewController.swift in Sources */,
+				1D0787582A54B39B00547484 /* JSONCoding.swift in Sources */,
+				1D0787552A54B36700547484 /* UITableView+Extensions.swift in Sources */,
+				1D07874F2A54A92400547484 /* Recipe.swift in Sources */,
 				1DF2F5222A53E7E0007AD662 /* TestingRootViewController.swift in Sources */,
+				1D0787592A54B3AC00547484 /* Menu.swift in Sources */,
+				1D0787542A54B35500547484 /* TableViewCellTypeProvider.swift in Sources */,
+				1D0787572A54B38F00547484 /* MealRepository.swift in Sources */,
+				1D0787532A54AE9E00547484 /* MealsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

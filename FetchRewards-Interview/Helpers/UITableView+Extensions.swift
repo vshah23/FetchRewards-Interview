@@ -8,7 +8,7 @@
 import UIKit
 
 extension UITableView {
-    func registerCells(for cellTypeProvider: TableViewCellTypeProvider) {
+    func registerCells(for cellTypeProvider: TableViewCellTypeProvider.Type) {
         for type in cellTypeProvider.cellTypes {
             register(type.self,
                      forCellReuseIdentifier: type.reuseIdentifier)

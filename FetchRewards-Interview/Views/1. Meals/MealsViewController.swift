@@ -34,13 +34,7 @@ class MealsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        tableView.registerCells(for: self)
-        tableView.refreshControl = UIRefreshControl()
-        tableView.refreshControl?.addTarget(self,
-                                            action: #selector(refreshData),
-                                            for: .valueChanged)
-        tableView.refreshControl?.attributedTitle = NSAttributedString(string: "Fetching recipes...",
-                                                                       attributes: nil)
+        setupTableView()
 
         title = viewModel.title
         viewModel.state
@@ -56,6 +50,16 @@ class MealsViewController: UITableViewController {
         guard !firstLoadKickedOff else { return }
         refreshData()
         firstLoadKickedOff = true
+    }
+
+    private func setupTableView() {
+        tableView.registerCells(for: type(of: self))
+        tableView.refreshControl = UIRefreshControl()
+        tableView.refreshControl?.addTarget(self,
+                                            action: #selector(refreshData),
+                                            for: .valueChanged)
+        tableView.refreshControl?.attributedTitle = NSAttributedString(string: "Fetching recipes...",
+                                                                       attributes: nil)
     }
 }
 
@@ -147,5 +151,5 @@ extension MealsViewController {
 }
 
 extension MealsViewController: TableViewCellTypeProvider {
-    var cellTypes: [UITableViewCell.Type] { [UITableViewCell.self] }
+    static var cellTypes: [UITableViewCell.Type] { [UITableViewCell.self] }
 }

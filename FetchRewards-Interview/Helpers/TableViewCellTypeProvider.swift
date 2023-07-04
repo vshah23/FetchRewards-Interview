@@ -8,5 +8,5 @@
 import UIKit
 
 protocol TableViewCellTypeProvider {
-    var cellTypes: [UITableViewCell.Type] { get }
+    static var cellTypes: [UITableViewCell.Type] { get }
 }
