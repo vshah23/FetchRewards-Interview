@@ -59,6 +59,7 @@
 		1DB7EDD22A556E570032A20E /* Error+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB7EDD12A556E570032A20E /* Error+Extensions.swift */; };
 		1DBE19C02A55890F00B6C926 /* LoadingScreenShowableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DBE19BF2A55890F00B6C926 /* LoadingScreenShowableTests.swift */; };
 		1DBE19C22A5593D900B6C926 /* ErrorShowableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DBE19C12A5593D900B6C926 /* ErrorShowableTests.swift */; };
+		1DD80BE32A559AAA00935367 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD80BE22A559AAA00935367 /* Ingredient.swift */; };
 		1DF2F51C2A53E5EC007AD662 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF2F51B2A53E5EC007AD662 /* main.swift */; };
 		1DF2F51E2A53E64D007AD662 /* TestingAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF2F51D2A53E64D007AD662 /* TestingAppDelegate.swift */; };
 		1DF2F5202A53E6B7007AD662 /* TestingSceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF2F51F2A53E6B7007AD662 /* TestingSceneDelegate.swift */; };
@@ -122,6 +123,7 @@
 		1DB7EDD12A556E570032A20E /* Error+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+Extensions.swift"; sourceTree = "<group>"; };
 		1DBE19BF2A55890F00B6C926 /* LoadingScreenShowableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingScreenShowableTests.swift; sourceTree = "<group>"; };
 		1DBE19C12A5593D900B6C926 /* ErrorShowableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorShowableTests.swift; sourceTree = "<group>"; };
+		1DD80BE22A559AAA00935367 /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
 		1DF2F51A2A53D60D007AD662 /* FetchRewards-InterviewTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = "FetchRewards-InterviewTests.xctestplan"; sourceTree = "<group>"; };
 		1DF2F51B2A53E5EC007AD662 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		1DF2F51D2A53E64D007AD662 /* TestingAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingAppDelegate.swift; sourceTree = "<group>"; };
@@ -237,6 +239,7 @@
 			children = (
 				1D2F15BA2A4CF59C00C0FA2D /* Menu.swift */,
 				1D2F15B82A4CF57500C0FA2D /* Recipe.swift */,
+				1DD80BE22A559AAA00935367 /* Ingredient.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -479,6 +482,7 @@
 				1D2F15EC2A5353C900C0FA2D /* TableViewCellTypeProvider.swift in Sources */,
 				1DF2F51C2A53E5EC007AD662 /* main.swift in Sources */,
 				1D2F15D12A4E434200C0FA2D /* MealsViewModel.swift in Sources */,
+				1DD80BE32A559AAA00935367 /* Ingredient.swift in Sources */,
 				1D2F15852A4CC4D000C0FA2D /* AppDelegate.swift in Sources */,
 				1D2F15872A4CC4D000C0FA2D /* SceneDelegate.swift in Sources */,
 				1D2F15E42A52B04600C0FA2D /* ErrorHelper.swift in Sources */,

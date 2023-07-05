@@ -34,15 +34,7 @@ class MealsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        setupTableView()
-
-        title = viewModel.title
-        viewModel.state
-            .receive(on: RunLoop.main)
-            .sink { [weak self] state in
-                self?.update(state: state)
-            }
-            .store(in: &subscriptions)
+        setupView()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -52,8 +44,21 @@ class MealsViewController: UITableViewController {
         firstLoadKickedOff = true
     }
 
+    private func setupView() {
+        title = viewModel.title
+        setupTableView()
+
+        viewModel.state
+            .receive(on: RunLoop.main)
+            .sink { [weak self] state in
+                self?.update(state: state)
+            }
+            .store(in: &subscriptions)
+    }
+
     private func setupTableView() {
         tableView.registerCells(for: type(of: self))
+        tableView.tableFooterView = UIView()
         tableView.refreshControl = UIRefreshControl()
         tableView.refreshControl?.addTarget(self,
                                             action: #selector(refreshData),

@@ -238,3 +238,153 @@ struct Recipe: Codable, Equatable {
         self.dateModified = try container.decodeIfPresent(String.self, forKey: .dateModified)
     }
 }
+
+extension Recipe {
+    /// This has a high cost of maintenance if more ingredients are added in the future.
+    /// We can improve this using reflection,
+    var ingredients: [Ingredient] {
+        var ingredients: [Ingredient] = []
+
+        if let strIngredient1: String = strIngredient1,
+           let strMeasure1: String = strMeasure1,
+           !strIngredient1.isEmpty,
+           !strMeasure1.isEmpty {
+            ingredients.append(Ingredient(name: strIngredient1, measure: strMeasure1))
+        }
+
+        if let strIngredient2: String = strIngredient2,
+           let strMeasure2: String = strMeasure2,
+           !strIngredient2.isEmpty,
+           !strMeasure2.isEmpty {
+            ingredients.append(Ingredient(name: strIngredient2, measure: strMeasure2))
+        }
+
+        if let strIngredient3: String = strIngredient3,
+           let strMeasure3: String = strMeasure3,
+           !strIngredient3.isEmpty,
+           !strMeasure3.isEmpty {
+            ingredients.append(Ingredient(name: strIngredient3, measure: strMeasure3))
+        }
+
+        if let strIngredient4: String = strIngredient4,
+           let strMeasure4: String = strMeasure4,
+           !strIngredient4.isEmpty,
+           !strMeasure4.isEmpty {
+            ingredients.append(Ingredient(name: strIngredient4, measure: strMeasure4))
+        }
+
+        if let strIngredient5: String = strIngredient5,
+           let strMeasure5: String = strMeasure5,
+           !strIngredient5.isEmpty,
+           !strMeasure5.isEmpty {
+            ingredients.append(Ingredient(name: strIngredient5, measure: strMeasure5))
+        }
+
+        if let strIngredient6: String = strIngredient6,
+           let strMeasure6: String = strMeasure6,
+           !strIngredient6.isEmpty,
+           !strMeasure6.isEmpty {
+            ingredients.append(Ingredient(name: strIngredient6, measure: strMeasure6))
+        }
+
+        if let strIngredient7: String = strIngredient7,
+           let strMeasure7: String = strMeasure7,
+           !strIngredient7.isEmpty,
+           !strMeasure7.isEmpty {
+            ingredients.append(Ingredient(name: strIngredient7, measure: strMeasure7))
+        }
+
+        if let strIngredient8: String = strIngredient8,
+           let strMeasure8: String = strMeasure8,
+           !strIngredient8.isEmpty,
+           !strMeasure8.isEmpty {
+            ingredients.append(Ingredient(name: strIngredient8, measure: strMeasure8))
+        }
+
+        if let strIngredient9: String = strIngredient9,
+           let strMeasure9: String = strMeasure9,
+           !strIngredient9.isEmpty,
+           !strMeasure9.isEmpty {
+            ingredients.append(Ingredient(name: strIngredient9, measure: strMeasure9))
+        }
+
+        if let strIngredient10: String = strIngredient10,
+           let strMeasure10: String = strMeasure10,
+           !strIngredient10.isEmpty,
+           !strMeasure10.isEmpty {
+            ingredients.append(Ingredient(name: strIngredient10, measure: strMeasure10))
+        }
+
+        if let strIngredient11: String = strIngredient11,
+           let strMeasure11: String = strMeasure11,
+           !strIngredient11.isEmpty,
+           !strMeasure11.isEmpty {
+            ingredients.append(Ingredient(name: strIngredient11, measure: strMeasure11))
+        }
+
+        if let strIngredient12: String = strIngredient12,
+           let strMeasure12: String = strMeasure12,
+           !strIngredient12.isEmpty,
+           !strMeasure12.isEmpty {
+            ingredients.append(Ingredient(name: strIngredient12, measure: strMeasure12))
+        }
+
+        if let strIngredient13: String = strIngredient13,
+           let strMeasure13: String = strMeasure13,
+           !strIngredient13.isEmpty,
+           !strMeasure13.isEmpty {
+            ingredients.append(Ingredient(name: strIngredient13, measure: strMeasure13))
+        }
+
+        if let strIngredient14: String = strIngredient14,
+           let strMeasure14: String = strMeasure14,
+           !strIngredient14.isEmpty,
+           !strMeasure14.isEmpty {
+            ingredients.append(Ingredient(name: strIngredient14, measure: strMeasure14))
+        }
+
+        if let strIngredient15: String = strIngredient15,
+           let strMeasure15: String = strMeasure15,
+           !strIngredient15.isEmpty,
+           !strMeasure15.isEmpty {
+            ingredients.append(Ingredient(name: strIngredient15, measure: strMeasure15))
+        }
+
+        if let strIngredient16: String = strIngredient16,
+           let strMeasure16: String = strMeasure16,
+           !strIngredient16.isEmpty,
+           !strMeasure16.isEmpty {
+            ingredients.append(Ingredient(name: strIngredient16, measure: strMeasure16))
+        }
+
+        if let strIngredient17: String = strIngredient17,
+           let strMeasure17: String = strMeasure17,
+           !strIngredient17.isEmpty,
+           !strMeasure17.isEmpty {
+            ingredients.append(Ingredient(name: strIngredient17, measure: strMeasure17))
+        }
+
+        if let strIngredient18: String = strIngredient18,
+           let strMeasure18: String = strMeasure18,
+           !strIngredient18.isEmpty,
+           !strMeasure18.isEmpty {
+            ingredients.append(Ingredient(name: strIngredient18, measure: strMeasure18))
+        }
+
+        if let strIngredient19: String = strIngredient19,
+           let strMeasure19: String = strMeasure19,
+           !strIngredient19.isEmpty,
+           !strMeasure19.isEmpty {
+            ingredients.append(Ingredient(name: strIngredient19, measure: strMeasure19))
+        }
+
+        if let strIngredient20: String = strIngredient20,
+           let strMeasure20: String = strMeasure20,
+           !strIngredient20.isEmpty,
+           !strMeasure20.isEmpty {
+            ingredients.append(Ingredient(name: strIngredient20, measure: strMeasure20))
+        }
+
+        return ingredients
+    }
+}
