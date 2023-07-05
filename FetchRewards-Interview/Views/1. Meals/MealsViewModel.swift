@@ -8,11 +8,24 @@
 import Foundation
 import Combine
 
-enum MealsViewState {
+enum MealsViewState: CustomStringConvertible {
     case loading
     case loaded
     case noData
     case error(String)
+
+    var description: String {
+        switch self {
+        case .loading:
+            return "loading"
+        case .loaded:
+            return "loaded"
+        case .noData:
+            return "noData"
+        case .error:
+            return "error"
+        }
+    }
 }
 
 @MainActor
