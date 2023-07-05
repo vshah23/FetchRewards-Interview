@@ -37,7 +37,7 @@ final class MealRepositoryImpl: MealRepository {
         let queryParams: [URLQueryItem] = [URLQueryItem(name: "c", value: "Dessert")]
         let data: Data = try await httpClient.get(url, queryParams: queryParams)
 
-        let menu: Menu<Recipe> = try jsonDecoder.decode(Menu<Recipe>.self, from: data)
+        let menu: Menu = try jsonDecoder.decode(Menu.self, from: data)
         return menu.meals
     }
 
@@ -46,7 +46,7 @@ final class MealRepositoryImpl: MealRepository {
         let queryParams: [URLQueryItem] = [URLQueryItem(name: "i", value: id)]
         let data: Data = try await httpClient.get(url, queryParams: queryParams)
 
-        let menu: Menu<Recipe> = try JSONDecoder().decode(Menu<Recipe>.self, from: data)
+        let menu: Menu = try JSONDecoder().decode(Menu.self, from: data)
         guard let recipe: Recipe = menu.meals.first else {
             throw MealRepositoryError.recipeNotFound
         }
