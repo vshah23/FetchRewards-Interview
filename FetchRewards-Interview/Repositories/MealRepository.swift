@@ -17,6 +17,10 @@ enum MealDBAPI {
     static let baseURL: String = "https://themealdb.com/api/json/v1/1"
     static let filterEndpoint: String = "/filter.php"
     static let recipeLookupEndpoint: String = "/lookup.php"
+
+    enum Category {
+        static let dessert: String = "Dessert"
+    }
 }
 
 enum MealRepositoryError: Error {
@@ -34,7 +38,7 @@ final class MealRepositoryImpl: MealRepository {
 
     func fetchDesserts() async throws -> [Meal] {
         let url: String = MealDBAPI.baseURL + MealDBAPI.filterEndpoint
-        let queryParams: [URLQueryItem] = [URLQueryItem(name: "c", value: "Dessert")]
+        let queryParams: [URLQueryItem] = [URLQueryItem(name: "c", value: MealDBAPI.Category.dessert)]
         let data: Data = try await httpClient.get(url, queryParams: queryParams)
 
         let menu: Menu<Meal> = try jsonDecoder.decode(Menu<Meal>.self, from: data)
