@@ -87,7 +87,8 @@ final class HTTPClientImplTests: XCTestCase {
             }
 
             XCTAssertEqual(actualData, test.expected.data)
-            XCTAssertEqual(actualError?.localizedDescription, test.expected.error?.localizedDescription)
+            // swiftlint:disable:next line_length
+            XCTAssertTrue(areEqual(actualError, test.expected.error), "actual error:\(String(describing: actualError)), expected error:\(String(describing: test.expected.error))")
         }
     }
 }

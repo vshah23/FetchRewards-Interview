@@ -55,6 +55,7 @@
 		1D94199E2A53CD9F00221A0E /* ErrorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2F15E32A52B04600C0FA2D /* ErrorHelper.swift */; };
 		1D94199F2A53CDD500221A0E /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2F15C92A4E2E4300C0FA2D /* HTTPClient.swift */; };
 		1DB7EDCD2A5545C00032A20E /* MealsViewModelImplTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB7EDCC2A5545C00032A20E /* MealsViewModelImplTests.swift */; };
+		1DB7EDD22A556E570032A20E /* Error+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB7EDD12A556E570032A20E /* Error+Extensions.swift */; };
 		1DF2F51C2A53E5EC007AD662 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF2F51B2A53E5EC007AD662 /* main.swift */; };
 		1DF2F51E2A53E64D007AD662 /* TestingAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF2F51D2A53E64D007AD662 /* TestingAppDelegate.swift */; };
 		1DF2F5202A53E6B7007AD662 /* TestingSceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF2F51F2A53E6B7007AD662 /* TestingSceneDelegate.swift */; };
@@ -114,6 +115,7 @@
 		1D94199A2A537E7400221A0E /* JSONCoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONCoding.swift; sourceTree = "<group>"; };
 		1D94199C2A539AA600221A0E /* ErrorHelperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHelperTests.swift; sourceTree = "<group>"; };
 		1DB7EDCC2A5545C00032A20E /* MealsViewModelImplTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsViewModelImplTests.swift; sourceTree = "<group>"; };
+		1DB7EDD12A556E570032A20E /* Error+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+Extensions.swift"; sourceTree = "<group>"; };
 		1DF2F51A2A53D60D007AD662 /* FetchRewards-InterviewTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = "FetchRewards-InterviewTests.xctestplan"; sourceTree = "<group>"; };
 		1DF2F51B2A53E5EC007AD662 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		1DF2F51D2A53E64D007AD662 /* TestingAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingAppDelegate.swift; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 				1DB7EDCC2A5545C00032A20E /* MealsViewModelImplTests.swift */,
 				1D07875B2A54FE4700547484 /* UITableViewCell+ExtensionsTests.swift */,
 				1D07875D2A55060800547484 /* UITableView+ExtensionsTests.swift */,
+				1DB7EDD02A556E300032A20E /* Extensions */,
 				1D07875A2A54DD6700547484 /* Testing Environment */,
 			);
 			path = "FetchRewards-InterviewTests";
@@ -294,6 +297,14 @@
 				1D2F15DF2A52927200C0FA2D /* UITableViewCell+Extensions.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		1DB7EDD02A556E300032A20E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1DB7EDD12A556E570032A20E /* Error+Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -502,6 +513,7 @@
 				1D0787542A54B35500547484 /* TableViewCellTypeProvider.swift in Sources */,
 				1D0787572A54B38F00547484 /* MealRepository.swift in Sources */,
 				1D0787532A54AE9E00547484 /* MealsViewModel.swift in Sources */,
+				1DB7EDD22A556E570032A20E /* Error+Extensions.swift in Sources */,
 				1D0787602A55086100547484 /* MealsCoordinatorImplTests.swift in Sources */,
 				1D0787612A550F8E00547484 /* MealsCoordinator.swift in Sources */,
 			);
