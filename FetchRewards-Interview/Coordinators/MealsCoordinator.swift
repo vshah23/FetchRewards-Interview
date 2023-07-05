@@ -15,11 +15,24 @@ class MealsCoordinatorImpl: Coordinator {
         self.navigationController = navigationController
         self.mealRepository = mealRepository
     }
+}
 
+@MainActor
+extension MealsCoordinatorImpl {
     func start() {
+        showMeals()
+    }
+
+    private func showMeals() {
         let mealsVM: MealsViewModel = MealsViewModelImpl(mealsRepository: mealRepository)
         let mealsVC: MealsViewController = MealsViewController(viewModel: mealsVM, delegate: self)
         navigationController.pushViewController(mealsVC, animated: false)
+    }
+
+    private func showMealDetails(for recipe: Recipe) {
+        let viewModel: MealDetailsViewModel = MealDetailsViewModelImpl(recipe: recipe)
+        let viewController: MealDetailsViewController = MealDetailsViewController(viewModel: viewModel)
+        navigationController.pushViewController(viewController, animated: true)
     }
 }
 
@@ -31,38 +44,34 @@ extension MealsCoordinatorImpl: MealsViewControllerDelegate {
 
     @MainActor
     func finishedLoadingData() {
-        Task { [weak self] in
-            await self?.hideLoader()
-        }
+        Task { [weak self] in await self?.hideLoader() }
     }
 
     @MainActor
     func errorLoadingData(errorMessage: String) {
         Task { [weak self] in
-            await self?.hideLoader()
-            self?.showError(errorMessage: errorMessage)
+            await self?.hideLoader { [weak self] in
+                await self?.showError(errorMessage: errorMessage)
+            }
         }
     }
 
     @MainActor
     func mealSelected(id: String) {
         showLoader()
-        Task {
-            do {
-                let recipe: Recipe = try await mealRepository.fetchDessert(id: id)
-                let viewModel: MealDetailsViewModel = MealDetailsViewModelImpl(recipe: recipe)
-                let viewController: MealDetailsViewController = MealDetailsViewController(viewModel: viewModel)
-                await hideLoader()
-                await MainActor.run { [weak self] in
-                    self?.navigationController.pushViewController(viewController, animated: true)
-                }
-            } catch {
-                await hideLoader()
-                await MainActor.run { [weak self] in
-                    self?.showError(errorMessage: ErrorHelper.userFriendlyErrorMessage(for: error))
-                }
-            }
+        Task { [weak self] in await self?.mealSelected(id: id) }
+    }
 
+    private func mealSelected(id: String) async {
+        do {
+            let recipe: Recipe = try await mealRepository.fetchDessert(id: id)
+            await hideLoader { [weak self] in
+                await self?.showMealDetails(for: recipe)
+            }
+        } catch {
+            await hideLoader { [weak self] in
+                await self?.showError(errorMessage: ErrorHelper.userFriendlyErrorMessage(for: error))
+            }
         }
     }
 }

@@ -15,23 +15,25 @@ enum MealsViewState {
     case error(String)
 }
 
+@MainActor
 protocol MealsViewModel {
     var title: String { get }
-    @MainActor var state: CurrentValueSubject<MealsViewState, Never> { get }
+    var state: CurrentValueSubject<MealsViewState, Never> { get }
 
-    @MainActor func fetchMeals() async
+    func fetchMeals() async
 
     func numberOfMeals() -> Int
     func titleForMeal(in row: Int) -> String
     func mealId(forMealAt row: Int) -> String
 }
 
+@MainActor
 class MealsViewModelImpl: MealsViewModel {
     private let mealsRepository: MealRepository
     var title: String = "Meals"
 
-    @MainActor var state: CurrentValueSubject<MealsViewState, Never>
-    @MainActor private var meals: [Recipe]
+    var state: CurrentValueSubject<MealsViewState, Never>
+    private var meals: [Recipe]
 
     init(mealsRepository: MealRepository) {
         self.mealsRepository = mealsRepository
@@ -39,33 +41,27 @@ class MealsViewModelImpl: MealsViewModel {
         self.meals = []
     }
 
-    @MainActor
     func fetchMeals() async {
         state.value = .loading
         do {
             let meals: [Recipe] = try await mealsRepository.fetchDesserts()
                 .filter { meal in !meal.strMeal.isEmpty }
                 .sorted { meal1, meal2 in meal1.strMeal < meal2.strMeal }
-            await MainActor.run { [weak self] in
-                self?.meals = meals
-                self?.state.value = meals.count > 0 ? .loaded : .noData
-            }
+            self.meals = meals
+            state.value = meals.count > 0 ? .loaded : .noData
         } catch {
-            self.state.value = .error(ErrorHelper.userFriendlyErrorMessage(for: error))
+            state.value = .error(ErrorHelper.userFriendlyErrorMessage(for: error))
         }
     }
 
-    @MainActor
     func numberOfMeals() -> Int {
         return meals.count
     }
 
-    @MainActor
     func titleForMeal(in row: Int) -> String {
         return meals[row].strMeal
     }
 
-    @MainActor
     func mealId(forMealAt row: Int) -> String {
         return meals[row].idMeal
     }

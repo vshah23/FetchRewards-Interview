@@ -9,11 +9,11 @@ import UIKit
 
 protocol ErrorShowable: AnyObject {
     var parentViewController: UIViewController { get }
-    @MainActor func showError(errorMessage: String)
+    func showError(errorMessage: String)
 }
 
+@MainActor
 extension ErrorShowable {
-    @MainActor
     func showError(errorMessage: String) {
         let alertController: UIAlertController = UIAlertController(title: "Meals",
                                                                    message: errorMessage,

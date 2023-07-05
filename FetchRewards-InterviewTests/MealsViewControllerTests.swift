@@ -41,6 +41,7 @@ final class MealsViewControllerTests: XCTestCase {
     var viewModel: StubViewModel!
     var viewController: MealsViewController!
 
+    @MainActor
     override func setUp() {
         viewModel = StubViewModel()
         viewController = MealsViewController(viewModel: viewModel)
