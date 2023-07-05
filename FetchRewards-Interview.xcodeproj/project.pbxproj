@@ -60,6 +60,7 @@
 		1DBE19C02A55890F00B6C926 /* LoadingScreenShowableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DBE19BF2A55890F00B6C926 /* LoadingScreenShowableTests.swift */; };
 		1DBE19C22A5593D900B6C926 /* ErrorShowableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DBE19C12A5593D900B6C926 /* ErrorShowableTests.swift */; };
 		1DD80BE32A559AAA00935367 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD80BE22A559AAA00935367 /* Ingredient.swift */; };
+		1DD80BE42A55B68000935367 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD80BE22A559AAA00935367 /* Ingredient.swift */; };
 		1DF2F51C2A53E5EC007AD662 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF2F51B2A53E5EC007AD662 /* main.swift */; };
 		1DF2F51E2A53E64D007AD662 /* TestingAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF2F51D2A53E64D007AD662 /* TestingAppDelegate.swift */; };
 		1DF2F5202A53E6B7007AD662 /* TestingSceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF2F51F2A53E6B7007AD662 /* TestingSceneDelegate.swift */; };
@@ -521,6 +522,7 @@
 				1D0787522A54AE6300547484 /* MealsViewController.swift in Sources */,
 				1D0787582A54B39B00547484 /* JSONCoding.swift in Sources */,
 				1D0787552A54B36700547484 /* UITableView+Extensions.swift in Sources */,
+				1DD80BE42A55B68000935367 /* Ingredient.swift in Sources */,
 				1D07874F2A54A92400547484 /* Recipe.swift in Sources */,
 				1DF2F5222A53E7E0007AD662 /* TestingRootViewController.swift in Sources */,
 				1D0787592A54B3AC00547484 /* Menu.swift in Sources */,
