@@ -21,7 +21,6 @@
   },
   "testTargets" : [
     {
-      "parallelizable" : true,
       "target" : {
         "containerPath" : "container:FetchRewards-Interview.xcodeproj",
         "identifier" : "1D2F15962A4CC4D100C0FA2D",
