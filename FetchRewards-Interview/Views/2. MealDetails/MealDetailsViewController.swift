@@ -47,6 +47,7 @@ class MealDetailsViewController: UITableViewController {
         tableView.registerCells(for: type(of: self))
         tableView.tableFooterView = UIView()
         tableView.allowsSelection = false
+        tableView.estimatedRowHeight = 20.0
     }
 }
 
@@ -68,26 +69,34 @@ extension MealDetailsViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: UITableViewCell.reuseIdentifier,
-                                                                  for: indexPath)
         switch (indexPath.section, indexPath.row) {
         case (0, _):
-            return setupInstructionsCell(cell, for: indexPath)
+            return self.tableView(tableView, setupInstructionsCellFor: indexPath)
         case (1, _):
-            return setupIngredientCell(cell, for: indexPath)
+            return self.tableView(tableView, setupIngredientsCellFor: indexPath)
         default:
             return UITableViewCell()
         }
     }
 
-    private func setupInstructionsCell(_ cell: UITableViewCell, for indexPath: IndexPath) -> UITableViewCell {
-        cell.textLabel?.text = viewModel.instructionsText(for: indexPath.row)
-        cell.textLabel?.numberOfLines = 0
+    private func tableView(_ tableView: UITableView, setupInstructionsCellFor indexPath: IndexPath) -> UITableViewCell {
+        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: UITableViewCell.reuseIdentifier,
+                                                                  for: indexPath)
+        var content: UIListContentConfiguration = cell.defaultContentConfiguration()
+        content.text = viewModel.instructionsText()
+        cell.contentConfiguration = content
         return cell
     }
 
-    private func setupIngredientCell(_ cell: UITableViewCell, for indexPath: IndexPath) -> UITableViewCell {
+    private func tableView(_ tableView: UITableView, setupIngredientsCellFor indexPath: IndexPath) -> UITableViewCell {
+        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: UITableViewCell.reuseIdentifier,
+                                                                  for: indexPath)
+        var contentConfiguration: UIListContentConfiguration = cell.defaultContentConfiguration()
+        contentConfiguration.text = viewModel.ingredientText(for: indexPath.row)
+        contentConfiguration.secondaryText = viewModel.measurementText(for: indexPath.row)
+        cell.contentConfiguration = contentConfiguration
         cell.textLabel?.text = viewModel.ingredientText(for: indexPath.row)
+
         cell.textLabel?.numberOfLines = 1
         return cell
     }

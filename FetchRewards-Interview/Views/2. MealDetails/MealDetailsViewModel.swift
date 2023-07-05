@@ -13,33 +13,19 @@ protocol MealDetailsViewModel {
     var numberOfInstructions: Int { get }
     var numberOfIngredients: Int { get }
 
-    func instructionsText(for row: Int) -> String
+    func instructionsText() -> String
     func ingredientText(for row: Int) -> String
+    func measurementText(for row: Int) -> String
 }
 
 class MealDetailsViewModelImpl: MealDetailsViewModel {
     private let recipe: Recipe
 
-    /// Complexity: O(2N) since we make two passes through the string
-    /// We can improve this by making a single pass with a sliding window technique
-    private lazy var instructions: [String] = {
-        var finalInstructions: [String] = []
-        guard var instructions: String = recipe.strInstructions else { return [] }
-        instructions = instructions.replacingOccurrences(of: "\r\n", with: ". ")
-        finalInstructions = instructions.components(separatedBy: ". ")
-
-        for (index, instr) in finalInstructions.enumerated() {
-            finalInstructions[index] = instr.trimmingCharacters(in: .punctuationCharacters) + "."
-        }
-
-        return finalInstructions
-    }()
-
     private lazy var ingredients: [Ingredient] = recipe.ingredients
 
     var title: String { recipe.strMeal }
 
-    var numberOfInstructions: Int { instructions.count }
+    var numberOfInstructions: Int { 1 }
 
     var numberOfIngredients: Int { ingredients.count }
 
@@ -47,12 +33,15 @@ class MealDetailsViewModelImpl: MealDetailsViewModel {
         self.recipe = recipe
     }
 
-    func instructionsText(for row: Int) -> String {
-        return "\(row + 1). \(instructions[row])"
+    func instructionsText() -> String {
+        return recipe.strInstructions ?? ""
     }
 
     func ingredientText(for row: Int) -> String {
-        let ingredient: Ingredient = ingredients[row]
-        return "\(ingredient.name) \(ingredient.measure)"
+        return ingredients[row].name.capitalized
+    }
+
+    func measurementText(for row: Int) -> String {
+        return ingredients[row].measure
     }
 }

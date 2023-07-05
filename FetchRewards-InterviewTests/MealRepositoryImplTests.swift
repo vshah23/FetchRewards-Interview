@@ -156,7 +156,7 @@ final class MealRepositoryImplTests: XCTestCase {
                               httpClientError: nil,
                               decodeObjectToReturn: menu2,
                               decodeError: nil),
-            FetchDessertExpected(recipe: nil, error: MealRepositoryError.recipeNotFound)
+            FetchDessertExpected(recipe: nil, error: MealRepositoryError.invalidRecipe)
         )
     ]
 

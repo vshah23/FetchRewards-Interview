@@ -24,24 +24,29 @@ First, do the thing. Then do another thing.\r\nBlablabla
 
     func testInstructionsText() {
         let viewModel: MealDetailsViewModel = MealDetailsViewModelImpl(recipe: recipe)
-        let expected1: String = "1. First, do the thing."
-        let expected2: String = "2. Then do another thing."
-        let expected3: String = "3. Blablabla."
-        let actual1: String = viewModel.instructionsText(for: 0)
-        let actual2: String = viewModel.instructionsText(for: 1)
-        let actual3: String = viewModel.instructionsText(for: 2)
+        let expected: String = "First, do the thing. Then do another thing.\r\nBlablabla"
+        let actual: String = viewModel.instructionsText()
 
-        XCTAssertEqual(actual1, expected1)
-        XCTAssertEqual(actual2, expected2)
-        XCTAssertEqual(actual3, expected3)
+        XCTAssertEqual(actual, expected)
     }
 
     func testIngredientText() {
         let viewModel: MealDetailsViewModel = MealDetailsViewModelImpl(recipe: recipe)
-        let expected1: String = "ABCD NOPQ"
-        let expected2: String = "EFGH WXYZ"
+        let expected1: String = "Abcd"
+        let expected2: String = "Efgh"
         let actual1: String = viewModel.ingredientText(for: 0)
         let actual2: String = viewModel.ingredientText(for: 1)
+
+        XCTAssertEqual(actual1, expected1)
+        XCTAssertEqual(actual2, expected2)
+    }
+
+    func testIngredientMeasure() {
+        let viewModel: MealDetailsViewModel = MealDetailsViewModelImpl(recipe: recipe)
+        let expected1: String = "NOPQ"
+        let expected2: String = "WXYZ"
+        let actual1: String = viewModel.measurementText(for: 0)
+        let actual2: String = viewModel.measurementText(for: 1)
 
         XCTAssertEqual(actual1, expected1)
         XCTAssertEqual(actual2, expected2)

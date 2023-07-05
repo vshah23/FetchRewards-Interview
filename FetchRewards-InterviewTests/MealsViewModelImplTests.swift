@@ -65,7 +65,7 @@ final class MealsViewModelImplTests: XCTestCase {
 
     @MainActor
     func testInit() {
-        XCTAssertEqual(viewModel.title, "Meals")
+        XCTAssertEqual(viewModel.title, "Desserts")
         XCTAssertEqual(viewModel.state.value.description, MealsViewState.noData.description)
     }
 
