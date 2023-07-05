@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MealsCoordinatorImpl: Coordinator {
+class MealsCoordinator: Coordinator {
     private let navigationController: UINavigationController
     private let mealRepository: MealRepository
 
@@ -18,7 +18,7 @@ class MealsCoordinatorImpl: Coordinator {
 }
 
 @MainActor
-extension MealsCoordinatorImpl {
+extension MealsCoordinator {
     func start() {
         showMeals()
     }
@@ -36,7 +36,7 @@ extension MealsCoordinatorImpl {
     }
 }
 
-extension MealsCoordinatorImpl: MealsViewControllerDelegate {
+extension MealsCoordinator: MealsViewControllerDelegate {
     @MainActor
     func loadingData() {
         showLoader()
@@ -76,6 +76,6 @@ extension MealsCoordinatorImpl: MealsViewControllerDelegate {
     }
 }
 
-extension MealsCoordinatorImpl: LoadingScreenShowable, ErrorShowable {
+extension MealsCoordinator: LoadingScreenShowable, ErrorShowable {
     var parentViewController: UIViewController { navigationController }
 }

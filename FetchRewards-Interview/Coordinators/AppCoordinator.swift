@@ -22,8 +22,8 @@ class AppCoordinator: Coordinator {
     private func showMeals() {
         let httpClient: HTTPClient = HTTPClientImpl(session: URLSession.shared)
         let mealRepository: MealRepository = MealRepositoryImpl(httpClient: httpClient, jsonDecoder: JSONDecoder())
-        let mealsCoordinator: Coordinator = MealsCoordinatorImpl(navigationController: navigationController,
-                                                                 mealRepository: mealRepository)
+        let mealsCoordinator: Coordinator = MealsCoordinator(navigationController: navigationController,
+                                                             mealRepository: mealRepository)
 
         mealsCoordinator.start()
         childCoordinators.append(mealsCoordinator)

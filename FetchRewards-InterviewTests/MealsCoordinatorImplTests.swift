@@ -44,17 +44,32 @@ final class MealsCoordinatorImplTests: XCTestCase {
         }
     }
 
-    func testStart() {
+    var navigationController: UINavigationController!
+    var coordinator: Coordinator!
+
+    override func setUp() {
         let session: HTTPClientSession = StubHTTPClientSession()
         let httpClient: HTTPClient = StubHTTPClient(session: session)
         let decoder: JSONDecoding = StubJSONDecoding()
         let repository: MealRepository = StubMealRepository(httpClient: httpClient, jsonDecoder: decoder)
 
-        let navigationController: UINavigationController = UINavigationController()
-        let coordinator: Coordinator = MealsCoordinatorImpl(navigationController: navigationController,
-                                                            mealRepository: repository)
-        coordinator.start()
+        navigationController = UINavigationController()
+        coordinator = MealsCoordinator(navigationController: navigationController,
+                                       mealRepository: repository)
+    }
 
+    func testStart() {
+        coordinator.start()
         XCTAssertTrue(navigationController.viewControllers.contains(where: { $0 is MealsViewController }))
+    }
+
+    func testLoadingData() {
+
+    }
+
+    func testParentViewController() {
+        let actual: UIViewController? = (coordinator as? LoadingScreenShowable)?.parentViewController
+        let expected: UINavigationController = navigationController
+        XCTAssertEqual(actual, expected)
     }
 }
