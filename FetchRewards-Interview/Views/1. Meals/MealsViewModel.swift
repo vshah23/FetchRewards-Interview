@@ -43,7 +43,7 @@ protocol MealsViewModel {
 @MainActor
 class MealsViewModelImpl: MealsViewModel {
     private let mealsRepository: MealRepository
-    var title: String = "Desserts"
+    var title: String = L10n.Meals.List.title
 
     var state: CurrentValueSubject<MealsViewState, Never>
     private var meals: [Meal]

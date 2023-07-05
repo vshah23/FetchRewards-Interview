@@ -38,7 +38,7 @@ let loaderViewController: UIViewController = {
 
     // setup "Loading..." label
     let loadingLabel: UILabel = UILabel()
-    loadingLabel.text = "Loading..."
+    loadingLabel.text = L10n.Loading.Screen.Loading.status
     loadingLabel.textColor = .white
     loadingLabel.numberOfLines = 1
     loadingLabel.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)

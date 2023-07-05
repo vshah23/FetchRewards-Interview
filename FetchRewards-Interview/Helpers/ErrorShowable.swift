@@ -15,10 +15,10 @@ protocol ErrorShowable: AnyObject {
 @MainActor
 extension ErrorShowable {
     func showError(errorMessage: String, _ completion: (() -> Void)? = nil) {
-        let alertController: UIAlertController = UIAlertController(title: "Meals",
+        let alertController: UIAlertController = UIAlertController(title: L10n.Alert.title,
                                                                    message: errorMessage,
                                                                    preferredStyle: .alert)
-        let action: UIAlertAction = UIAlertAction(title: "OK", style: .default)
+        let action: UIAlertAction = UIAlertAction(title: L10n.Alert.defaultAction, style: .default)
         alertController.addAction(action)
         viewControllerForDisplay.present(alertController,
                                          animated: true,

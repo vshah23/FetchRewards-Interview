@@ -15,9 +15,9 @@ class MealDetailsViewController: UITableViewController {
         var headerTitle: String {
             switch self {
             case .instructions:
-                return "Instructions"
+                return L10n.Meal.Details.Section.Header.instructions
             case .ingredients:
-                return "Ingredients"
+                return L10n.Meal.Details.Section.Header.ingredients
             }
         }
     }

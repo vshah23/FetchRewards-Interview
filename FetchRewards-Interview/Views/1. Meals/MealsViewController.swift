@@ -63,7 +63,7 @@ class MealsViewController: UITableViewController {
         tableView.refreshControl?.addTarget(self,
                                             action: #selector(refreshData),
                                             for: .valueChanged)
-        tableView.refreshControl?.attributedTitle = NSAttributedString(string: "Fetching recipes...",
+        tableView.refreshControl?.attributedTitle = NSAttributedString(string: L10n.Meals.List.Refreshcontrol.title,
                                                                        attributes: nil)
     }
 }

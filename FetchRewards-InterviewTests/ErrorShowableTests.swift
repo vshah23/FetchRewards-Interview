@@ -47,7 +47,7 @@ final class ErrorShowableTests: XCTestCase {
 
         let alertController: UIAlertController? = root.presentedViewController as? UIAlertController
         let actualTitle: String? = alertController?.title
-        let expectedTitle: String = "Meals"
+        let expectedTitle: String = "MealsDB"
         XCTAssertEqual(actualTitle, expectedTitle)
 
         let actualMessage: String? = alertController?.message

@@ -7,7 +7,7 @@
 "loading.screen.loading.status" = "Loading...";
 
 "meals.list.refreshcontrol.title" = "Fetching recipes...";
-"meals.list.title" = "Fetching recipes...";
+"meals.list.title" = "Desserts";
 
 "meal.details.section.header.instructions" = "Instructions";
 "meal.details.section.header.ingredients" = "Ingredients";

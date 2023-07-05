@@ -38,8 +38,8 @@ internal enum L10n {
   }
   internal enum Meals {
     internal enum List {
-      /// Fetching recipes...
-      internal static let title = L10n.tr("Localizable", "meals.list.title", fallback: "Fetching recipes...")
+      /// Desserts
+      internal static let title = L10n.tr("Localizable", "meals.list.title", fallback: "Desserts")
       internal enum Refreshcontrol {
         /// Fetching recipes...
         internal static let title = L10n.tr("Localizable", "meals.list.refreshcontrol.title", fallback: "Fetching recipes...")

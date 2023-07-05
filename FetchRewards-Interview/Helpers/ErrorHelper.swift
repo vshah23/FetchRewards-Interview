@@ -11,9 +11,9 @@ enum ErrorHelper {
     static func userFriendlyErrorMessage(for error: Error) -> String {
         switch error {
         case HTTPClientError.offline:
-            return "Please check your network connection and try again."
+            return L10n.UserFriendlyError.offline
         default:
-            return "Sorry, something went wrong. Please try again."
+            return L10n.UserFriendlyError.generic
         }
     }
 }
