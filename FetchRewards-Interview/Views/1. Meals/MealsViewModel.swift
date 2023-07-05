@@ -23,8 +23,8 @@ protocol MealsViewModel {
     func fetchMeals() async
 
     func numberOfMeals() -> Int
-    func titleForMeal(in row: Int) -> String
-    func mealId(forMealAt row: Int) -> String
+    func title(forMealIn row: Int) -> String
+    func mealId(forMealIn row: Int) -> String
 }
 
 @MainActor
@@ -58,11 +58,11 @@ class MealsViewModelImpl: MealsViewModel {
         return meals.count
     }
 
-    func titleForMeal(in row: Int) -> String {
+    func title(forMealIn row: Int) -> String {
         return meals[row].strMeal
     }
 
-    func mealId(forMealAt row: Int) -> String {
+    func mealId(forMealIn row: Int) -> String {
         return meals[row].idMeal
     }
 }

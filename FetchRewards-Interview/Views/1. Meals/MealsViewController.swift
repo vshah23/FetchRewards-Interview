@@ -76,7 +76,7 @@ extension MealsViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: UITableViewCell.reuseIdentifier,
                                                                   for: indexPath)
-        cell.textLabel?.text = viewModel.titleForMeal(in: indexPath.row)
+        cell.textLabel?.text = viewModel.title(forMealIn: indexPath.row)
         return cell
     }
 }
@@ -84,7 +84,7 @@ extension MealsViewController {
 // MARK: - Delegate
 extension MealsViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        delegate?.mealSelected(id: viewModel.mealId(forMealAt: indexPath.row))
+        delegate?.mealSelected(id: viewModel.mealId(forMealIn: indexPath.row))
     }
 }
 

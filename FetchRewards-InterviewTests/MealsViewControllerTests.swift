@@ -19,9 +19,9 @@ final class MealsViewControllerTests: XCTestCase {
 
         func numberOfMeals() -> Int { 25 }
 
-        func titleForMeal(in row: Int) -> String { "Pound Cake" }
+        func title(forMealIn row: Int) -> String { "Pound Cake" }
 
-        func mealId(forMealAt row: Int) -> String { "DEADBEEF" }
+        func mealId(forMealIn row: Int) -> String { "DEADBEEF" }
     }
 
     class StubMealsViewControllerDelegate: MealsViewControllerDelegate {
@@ -38,7 +38,7 @@ final class MealsViewControllerTests: XCTestCase {
         }
     }
 
-    var viewModel: StubViewModel!
+    var viewModel: MealsViewModel!
     var viewController: MealsViewController!
 
     @MainActor
