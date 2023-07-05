@@ -17,18 +17,27 @@ final class ErrorShowableTests: XCTestCase {
         }
     }
 
-    @MainActor
-    func testShowError() async {
-        let expectation: XCTestExpectation = expectation(description: "completed presenting error")
-
+    var root: UIViewController? {
         let allScenes = UIApplication.shared.connectedScenes
 
         guard let windowScene: UIWindowScene = allScenes.first as? UIWindowScene,
               let root: UIViewController = windowScene.keyWindow?.rootViewController else {
+            return nil
+        }
+        return root
+    }
+
+    override func tearDown() {
+        root?.dismiss(animated: false)
+    }
+
+    @MainActor
+    func testShowError() async {
+        let expectation: XCTestExpectation = expectation(description: "completed presenting error")
+        guard let root: UIViewController = root else {
             XCTFail("Failed to get root viewController")
             return
         }
-
         let dummy: StubErrorShowable = StubErrorShowable(parent: root)
         dummy.showError(errorMessage: "Hello, world!") {
             expectation.fulfill()
