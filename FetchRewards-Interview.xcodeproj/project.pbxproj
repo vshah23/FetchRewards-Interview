@@ -64,6 +64,10 @@
 		1DD80BE62A55C6D400935367 /* MealDetailsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD80BE52A55C6D400935367 /* MealDetailsViewModelTests.swift */; };
 		1DD80BEA2A55E1C200935367 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD80BE92A55E1C200935367 /* Meal.swift */; };
 		1DD80BEB2A55E45A00935367 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD80BE92A55E1C200935367 /* Meal.swift */; };
+		1DD80BEE2A55FBAD00935367 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1DD80BF02A55FBAD00935367 /* Localizable.strings */; };
+		1DD80BF62A56147C00935367 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1DD80BF02A55FBAD00935367 /* Localizable.strings */; };
+		1DD80BFC2A56164400935367 /* Strings+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD80BFB2A56164400935367 /* Strings+Generated.swift */; };
+		1DD80BFD2A56165700935367 /* Strings+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD80BFB2A56164400935367 /* Strings+Generated.swift */; };
 		1DF2F51C2A53E5EC007AD662 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF2F51B2A53E5EC007AD662 /* main.swift */; };
 		1DF2F51E2A53E64D007AD662 /* TestingAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF2F51D2A53E64D007AD662 /* TestingAppDelegate.swift */; };
 		1DF2F5202A53E6B7007AD662 /* TestingSceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF2F51F2A53E6B7007AD662 /* TestingSceneDelegate.swift */; };
@@ -130,6 +134,8 @@
 		1DD80BE22A559AAA00935367 /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
 		1DD80BE52A55C6D400935367 /* MealDetailsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailsViewModelTests.swift; sourceTree = "<group>"; };
 		1DD80BE92A55E1C200935367 /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
+		1DD80BEF2A55FBAD00935367 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		1DD80BFB2A56164400935367 /* Strings+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Strings+Generated.swift"; sourceTree = "<group>"; };
 		1DF2F51A2A53D60D007AD662 /* FetchRewards-InterviewTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = "FetchRewards-InterviewTests.xctestplan"; sourceTree = "<group>"; };
 		1DF2F51B2A53E5EC007AD662 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		1DF2F51D2A53E64D007AD662 /* TestingAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingAppDelegate.swift; sourceTree = "<group>"; };
@@ -201,7 +207,9 @@
 				1DF2F51B2A53E5EC007AD662 /* main.swift */,
 				1D2F158D2A4CC4D100C0FA2D /* Assets.xcassets */,
 				1D2F158F2A4CC4D100C0FA2D /* LaunchScreen.storyboard */,
+				1DD80BF02A55FBAD00935367 /* Localizable.strings */,
 				1D2F15BE2A4E24B900C0FA2D /* Coordinators */,
+				1DD80BFA2A56161500935367 /* Generated */,
 				1D2F15D62A4F9C1400C0FA2D /* Helpers */,
 				1D2F15B52A4CEB5E00C0FA2D /* Models */,
 				1D2F15C82A4E2E3400C0FA2D /* Networking */,
@@ -327,6 +335,14 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		1DD80BFA2A56161500935367 /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				1DD80BFB2A56164400935367 /* Strings+Generated.swift */,
+			);
+			path = Generated;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -433,6 +449,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D2F15912A4CC4D100C0FA2D /* LaunchScreen.storyboard in Resources */,
+				1DD80BEE2A55FBAD00935367 /* Localizable.strings in Resources */,
 				1D2F158E2A4CC4D100C0FA2D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -441,6 +458,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1DD80BF62A56147C00935367 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -494,6 +512,7 @@
 				1D2F15852A4CC4D000C0FA2D /* AppDelegate.swift in Sources */,
 				1D2F15872A4CC4D000C0FA2D /* SceneDelegate.swift in Sources */,
 				1D2F15E42A52B04600C0FA2D /* ErrorHelper.swift in Sources */,
+				1DD80BFC2A56164400935367 /* Strings+Generated.swift in Sources */,
 				1D2F15CA2A4E2E4300C0FA2D /* HTTPClient.swift in Sources */,
 				1D2F15B92A4CF57500C0FA2D /* Recipe.swift in Sources */,
 				1D2F15C52A4E272900C0FA2D /* MealRepository.swift in Sources */,
@@ -535,6 +554,7 @@
 				1DD80BE42A55B68000935367 /* Ingredient.swift in Sources */,
 				1D07874F2A54A92400547484 /* Recipe.swift in Sources */,
 				1DF2F5222A53E7E0007AD662 /* TestingRootViewController.swift in Sources */,
+				1DD80BFD2A56165700935367 /* Strings+Generated.swift in Sources */,
 				1D0787592A54B3AC00547484 /* Menu.swift in Sources */,
 				1DB7EDCF2A555F310032A20E /* MealRepositoryImplTests.swift in Sources */,
 				1D0787542A54B35500547484 /* TableViewCellTypeProvider.swift in Sources */,
@@ -580,6 +600,14 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
+		1DD80BF02A55FBAD00935367 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1DD80BEF2A55FBAD00935367 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -587,6 +615,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -647,6 +676,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";

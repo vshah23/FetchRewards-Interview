@@ -1,0 +1,13 @@
+"userFriendlyError.offline" = "Please check your network connection and try again.";
+"userFriendlyError.generic" = "Sorry, something went wrong. Please try again.";
+
+"alert.title" = "MealsDB";
+"alert.defaultAction" = "OK";
+
+"loading.screen.loading.status" = "Loading...";
+
+"meals.list.refreshcontrol.title" = "Fetching recipes...";
+"meals.list.title" = "Fetching recipes...";
+
+"meal.details.section.header.instructions" = "Instructions";
+"meal.details.section.header.ingredients" = "Ingredients";
