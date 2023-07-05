@@ -39,7 +39,7 @@ extension MealsCoordinator {
 extension MealsCoordinator: MealsViewControllerDelegate {
     @MainActor
     func loadingData() {
-        showLoader()
+        Task { [weak self] in await self?.showLoader() }
     }
 
     @MainActor
@@ -56,13 +56,12 @@ extension MealsCoordinator: MealsViewControllerDelegate {
         }
     }
 
-    @MainActor
     func mealSelected(id: String) {
-        showLoader()
         Task { [weak self] in await self?.mealSelected(id: id) }
     }
 
     private func mealSelected(id: String) async {
+        await showLoader()
         do {
             let recipe: Recipe = try await mealRepository.fetchDessert(id: id)
             await hideLoader { [weak self] in

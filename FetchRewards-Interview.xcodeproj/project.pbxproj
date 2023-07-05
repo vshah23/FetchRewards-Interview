@@ -57,6 +57,7 @@
 		1DB7EDCD2A5545C00032A20E /* MealsViewModelImplTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB7EDCC2A5545C00032A20E /* MealsViewModelImplTests.swift */; };
 		1DB7EDCF2A555F310032A20E /* MealRepositoryImplTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB7EDCE2A555F310032A20E /* MealRepositoryImplTests.swift */; };
 		1DB7EDD22A556E570032A20E /* Error+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB7EDD12A556E570032A20E /* Error+Extensions.swift */; };
+		1DBE19C02A55890F00B6C926 /* LoadingScreenShowableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DBE19BF2A55890F00B6C926 /* LoadingScreenShowableTests.swift */; };
 		1DF2F51C2A53E5EC007AD662 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF2F51B2A53E5EC007AD662 /* main.swift */; };
 		1DF2F51E2A53E64D007AD662 /* TestingAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF2F51D2A53E64D007AD662 /* TestingAppDelegate.swift */; };
 		1DF2F5202A53E6B7007AD662 /* TestingSceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF2F51F2A53E6B7007AD662 /* TestingSceneDelegate.swift */; };
@@ -118,6 +119,7 @@
 		1DB7EDCC2A5545C00032A20E /* MealsViewModelImplTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsViewModelImplTests.swift; sourceTree = "<group>"; };
 		1DB7EDCE2A555F310032A20E /* MealRepositoryImplTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealRepositoryImplTests.swift; sourceTree = "<group>"; };
 		1DB7EDD12A556E570032A20E /* Error+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+Extensions.swift"; sourceTree = "<group>"; };
+		1DBE19BF2A55890F00B6C926 /* LoadingScreenShowableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingScreenShowableTests.swift; sourceTree = "<group>"; };
 		1DF2F51A2A53D60D007AD662 /* FetchRewards-InterviewTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = "FetchRewards-InterviewTests.xctestplan"; sourceTree = "<group>"; };
 		1DF2F51B2A53E5EC007AD662 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		1DF2F51D2A53E64D007AD662 /* TestingAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingAppDelegate.swift; sourceTree = "<group>"; };
@@ -205,6 +207,7 @@
 				1DF2F51A2A53D60D007AD662 /* FetchRewards-InterviewTests.xctestplan */,
 				1D94199C2A539AA600221A0E /* ErrorHelperTests.swift */,
 				1D07874B2A53EF2A00547484 /* HTTPClientImplTests.swift */,
+				1DBE19BF2A55890F00B6C926 /* LoadingScreenShowableTests.swift */,
 				1DB7EDCE2A555F310032A20E /* MealRepositoryImplTests.swift */,
 				1D07875F2A55086100547484 /* MealsCoordinatorImplTests.swift */,
 				1D0787502A54AE4300547484 /* MealsViewControllerTests.swift */,
@@ -517,6 +520,7 @@
 				1D0787542A54B35500547484 /* TableViewCellTypeProvider.swift in Sources */,
 				1D0787572A54B38F00547484 /* MealRepository.swift in Sources */,
 				1D0787532A54AE9E00547484 /* MealsViewModel.swift in Sources */,
+				1DBE19C02A55890F00B6C926 /* LoadingScreenShowableTests.swift in Sources */,
 				1DB7EDD22A556E570032A20E /* Error+Extensions.swift in Sources */,
 				1D0787602A55086100547484 /* MealsCoordinatorImplTests.swift in Sources */,
 				1D0787612A550F8E00547484 /* MealsCoordinator.swift in Sources */,
