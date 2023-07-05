@@ -18,7 +18,7 @@ final class LoadingScreenShowableTests: XCTestCase {
     }
 
     @MainActor
-    func testShowLoader() async {
+    func testShowLoaderNotPresented() async {
         let loaderViewController: UIViewController = loaderViewController
         let expectation: XCTestExpectation = expectation(description: "completed presenting")
 
@@ -39,7 +39,30 @@ final class LoadingScreenShowableTests: XCTestCase {
     }
 
     @MainActor
-    func testHideLoader() async {
+    func testShowLoaderAlreadyPresented() async {
+        let loaderViewController: UIViewController = loaderViewController
+        let expectation: XCTestExpectation = expectation(description: "completed presenting")
+
+        let allScenes = UIApplication.shared.connectedScenes
+
+        guard let windowScene: UIWindowScene = allScenes.first as? UIWindowScene,
+              let root: UIViewController = windowScene.keyWindow?.rootViewController else {
+            XCTFail("Failed to get root viewController")
+            return
+        }
+
+        let dummy: StubLoadingScreenShowable = StubLoadingScreenShowable(parent: root)
+        await dummy.showLoader {
+            await dummy.showLoader {
+                expectation.fulfill()
+            }
+        }
+        await fulfillment(of: [expectation], timeout: 10)
+        XCTAssertNotNil(loaderViewController.presentingViewController)
+    }
+
+    @MainActor
+    func testHideLoaderAlreadyPresented() async {
         let loaderViewController: UIViewController = loaderViewController
         let expectation: XCTestExpectation = expectation(description: "completed dismissing")
 
@@ -56,6 +79,27 @@ final class LoadingScreenShowableTests: XCTestCase {
             await dummy.hideLoader {
                 expectation.fulfill()
             }
+        }
+        await fulfillment(of: [expectation], timeout: 10)
+        XCTAssertNil(loaderViewController.presentingViewController)
+    }
+
+    @MainActor
+    func testHideLoaderNotPresented() async {
+        let loaderViewController: UIViewController = loaderViewController
+        let expectation: XCTestExpectation = expectation(description: "completed dismissing")
+
+        let allScenes = UIApplication.shared.connectedScenes
+
+        guard let windowScene: UIWindowScene = allScenes.first as? UIWindowScene,
+              let root: UIViewController = windowScene.keyWindow?.rootViewController else {
+            XCTFail("Failed to get root viewController")
+            return
+        }
+
+        let dummy: StubLoadingScreenShowable = StubLoadingScreenShowable(parent: root)
+        await dummy.hideLoader {
+            expectation.fulfill()
         }
         await fulfillment(of: [expectation], timeout: 10)
         XCTAssertNil(loaderViewController.presentingViewController)
