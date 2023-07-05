@@ -24,7 +24,7 @@ final class MealsCoordinatorImplTests: XCTestCase {
         init(httpClient: HTTPClient, jsonDecoder: JSONDecoding) {
         }
 
-        func fetchDesserts() async throws -> [Recipe] {
+        func fetchDesserts() async throws -> [Meal] {
             return []
         }
 

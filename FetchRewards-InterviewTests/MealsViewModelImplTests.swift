@@ -22,17 +22,17 @@ final class MealsViewModelImplTests: XCTestCase {
     }
 
     struct StubMealRepository: MealRepository {
-        var recipes: [Recipe] = [
-            Recipe(idMeal: "12345", strMeal: "meal1", strMealThumb: ""),
-            Recipe(idMeal: "", strMeal: "meal2", strMealThumb: "")
+        var meals: [Meal] = [
+            Meal(idMeal: "12345", strMeal: "meal1", strMealThumb: ""),
+            Meal(idMeal: "", strMeal: "meal2", strMealThumb: "")
         ]
 
         var error: Error?
 
         init(httpClient: HTTPClient, jsonDecoder: JSONDecoding) { }
 
-        func fetchDesserts() async throws -> [Recipe] {
-            return recipes
+        func fetchDesserts() async throws -> [Meal] {
+            return meals
         }
 
         func fetchDessert(id: String) async throws -> Recipe {
@@ -101,7 +101,7 @@ final class MealsViewModelImplTests: XCTestCase {
     }
 
     struct FetchMealsInput {
-        let recipes: [Recipe]
+        let meals: [Meal]
         let error: Error?
     }
 
@@ -111,18 +111,18 @@ final class MealsViewModelImplTests: XCTestCase {
 
     let fetchMealsTests: [(input: FetchMealsInput, expected: FetchMealsExpected)] = [
         (
-            FetchMealsInput(recipes: [
-                Recipe(idMeal: "12345", strMeal: "meal1", strMealThumb: ""),
-                Recipe(idMeal: "", strMeal: "meal2", strMealThumb: "")
+            FetchMealsInput(meals: [
+                Meal(idMeal: "12345", strMeal: "meal1", strMealThumb: ""),
+                Meal(idMeal: "", strMeal: "meal2", strMealThumb: "")
             ], error: nil),
             FetchMealsExpected(states: [.noData, .loading, .loaded])
         ),
         (
-            FetchMealsInput(recipes: [], error: nil),
+            FetchMealsInput(meals: [], error: nil),
             FetchMealsExpected(states: [.noData, .loading, .noData])
         ),
         (
-            FetchMealsInput(recipes: [], error: TestError.someError),
+            FetchMealsInput(meals: [], error: TestError.someError),
             FetchMealsExpected(states: [.noData, .loading, .error("")])
         )
     ]
@@ -135,7 +135,7 @@ final class MealsViewModelImplTests: XCTestCase {
             let stubDecoder: JSONDecoding = StubJSONDecoding()
             var mealRepository: StubMealRepository = StubMealRepository(httpClient: stubHTTPClient,
                                                                         jsonDecoder: stubDecoder)
-            mealRepository.recipes = testCase.input.recipes
+            mealRepository.meals = testCase.input.meals
             mealRepository.error = testCase.input.error
             viewModel = MealsViewModelImpl(mealsRepository: mealRepository)
 

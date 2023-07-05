@@ -62,6 +62,8 @@
 		1DD80BE32A559AAA00935367 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD80BE22A559AAA00935367 /* Ingredient.swift */; };
 		1DD80BE42A55B68000935367 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD80BE22A559AAA00935367 /* Ingredient.swift */; };
 		1DD80BE62A55C6D400935367 /* MealDetailsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD80BE52A55C6D400935367 /* MealDetailsViewModelTests.swift */; };
+		1DD80BEA2A55E1C200935367 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD80BE92A55E1C200935367 /* Meal.swift */; };
+		1DD80BEB2A55E45A00935367 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD80BE92A55E1C200935367 /* Meal.swift */; };
 		1DF2F51C2A53E5EC007AD662 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF2F51B2A53E5EC007AD662 /* main.swift */; };
 		1DF2F51E2A53E64D007AD662 /* TestingAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF2F51D2A53E64D007AD662 /* TestingAppDelegate.swift */; };
 		1DF2F5202A53E6B7007AD662 /* TestingSceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF2F51F2A53E6B7007AD662 /* TestingSceneDelegate.swift */; };
@@ -127,6 +129,7 @@
 		1DBE19C12A5593D900B6C926 /* ErrorShowableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorShowableTests.swift; sourceTree = "<group>"; };
 		1DD80BE22A559AAA00935367 /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
 		1DD80BE52A55C6D400935367 /* MealDetailsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailsViewModelTests.swift; sourceTree = "<group>"; };
+		1DD80BE92A55E1C200935367 /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
 		1DF2F51A2A53D60D007AD662 /* FetchRewards-InterviewTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = "FetchRewards-InterviewTests.xctestplan"; sourceTree = "<group>"; };
 		1DF2F51B2A53E5EC007AD662 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		1DF2F51D2A53E64D007AD662 /* TestingAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingAppDelegate.swift; sourceTree = "<group>"; };
@@ -242,6 +245,7 @@
 			isa = PBXGroup;
 			children = (
 				1D2F15BA2A4CF59C00C0FA2D /* Menu.swift */,
+				1DD80BE92A55E1C200935367 /* Meal.swift */,
 				1D2F15B82A4CF57500C0FA2D /* Recipe.swift */,
 				1DD80BE22A559AAA00935367 /* Ingredient.swift */,
 			);
@@ -493,6 +497,7 @@
 				1D2F15CA2A4E2E4300C0FA2D /* HTTPClient.swift in Sources */,
 				1D2F15B92A4CF57500C0FA2D /* Recipe.swift in Sources */,
 				1D2F15C52A4E272900C0FA2D /* MealRepository.swift in Sources */,
+				1DD80BEA2A55E1C200935367 /* Meal.swift in Sources */,
 				1D2F15EA2A5351C900C0FA2D /* UITableView+Extensions.swift in Sources */,
 				1D2F15D82A4F9C2700C0FA2D /* LoadingScreenShowable.swift in Sources */,
 				1D2F15DA2A4F9DF900C0FA2D /* ErrorShowable.swift in Sources */,
@@ -525,6 +530,7 @@
 				1D0787522A54AE6300547484 /* MealsViewController.swift in Sources */,
 				1D0787582A54B39B00547484 /* JSONCoding.swift in Sources */,
 				1DD80BE62A55C6D400935367 /* MealDetailsViewModelTests.swift in Sources */,
+				1DD80BEB2A55E45A00935367 /* Meal.swift in Sources */,
 				1D0787552A54B36700547484 /* UITableView+Extensions.swift in Sources */,
 				1DD80BE42A55B68000935367 /* Ingredient.swift in Sources */,
 				1D07874F2A54A92400547484 /* Recipe.swift in Sources */,

@@ -46,45 +46,44 @@ final class MealRepositoryImplTests: XCTestCase {
         }
     }
 
-    // MARK: - fetchDesserts Tests
+    // MARK: - fetchDesserts() Tests
     struct FetchDessertsInput {
         let data: Data?
         let httpClientError: Error?
-        let decodeObjectToReturn: Menu?
+        let decodeObjectToReturn: Menu<Meal>?
         let decodeError: Error?
     }
 
     struct FetchDessertsExpected {
-        let recipes: [Recipe]?
+        let meals: [Meal]?
         let error: Error?
     }
 
-    let recipe1: Recipe = Recipe(idMeal: "", strMeal: "", strMealThumb: "")
-    var recipes1: [Recipe] { [recipe1] }
-    var menu1: Menu { Menu(meals: recipes1) }
-    var menu2: Menu { Menu(meals: []) }
+    let meal1: Meal = Meal(idMeal: "", strMeal: "", strMealThumb: "")
+    var meals1: [Meal] { [meal1] }
+    var mealMenu1: Menu<Meal> { Menu(meals: meals1) }
 
     lazy var fetchDessertsTests: [(input: FetchDessertsInput, expected: FetchDessertsExpected)] = [
         (
             FetchDessertsInput(data: Data(),
                                httpClientError: nil,
-                               decodeObjectToReturn: menu1,
+                               decodeObjectToReturn: mealMenu1,
                                decodeError: nil),
-            FetchDessertsExpected(recipes: recipes1, error: nil)
+            FetchDessertsExpected(meals: meals1, error: nil)
         ),
         (
             FetchDessertsInput(data: nil,
                                httpClientError: TestError.testError,
                                decodeObjectToReturn: nil,
                                decodeError: nil),
-            FetchDessertsExpected(recipes: nil, error: TestError.testError)
+            FetchDessertsExpected(meals: nil, error: TestError.testError)
         ),
         (
             FetchDessertsInput(data: Data(),
                                httpClientError: nil,
                                decodeObjectToReturn: nil,
                                decodeError: TestError.testError),
-            FetchDessertsExpected(recipes: nil, error: TestError.testError)
+            FetchDessertsExpected(meals: nil, error: TestError.testError)
         )
     ]
 
@@ -99,28 +98,26 @@ final class MealRepositoryImplTests: XCTestCase {
             stubDecoder.errorToThrow = testCase.input.decodeError
             let repository: MealRepository = MealRepositoryImpl(httpClient: stubHTTPClient, jsonDecoder: stubDecoder)
 
-            var actualRecipes: [Recipe]?
+            var actualMeals: [Meal]?
             var actualError: Error?
 
             do {
-                actualRecipes = try await repository.fetchDesserts()
+                actualMeals = try await repository.fetchDesserts()
             } catch {
                 actualError = error
             }
 
-            XCTAssertEqual(actualRecipes, testCase.expected.recipes)
+            XCTAssertEqual(actualMeals, testCase.expected.meals)
             // swiftlint:disable:next line_length
             XCTAssertTrue(areEqual(actualError, testCase.expected.error), "actual error:\(String(describing: actualError)), expected error:\(String(describing: testCase.expected.error))")
         }
     }
 
     // MARK: - fetchDessert() Tests
-
-    // MARK: - fetchDesserts Tests
     struct FetchDessertInput {
         let data: Data?
         let httpClientError: Error?
-        let decodeObjectToReturn: Menu?
+        let decodeObjectToReturn: Menu<Recipe>?
         let decodeError: Error?
     }
 
@@ -129,11 +126,16 @@ final class MealRepositoryImplTests: XCTestCase {
         let error: Error?
     }
 
+    let recipe1: Recipe = Recipe(idMeal: "", strMeal: "", strMealThumb: "")
+    var recipes1: [Recipe] { [recipe1] }
+    var recipeMenu1: Menu<Recipe> { Menu(meals: recipes1) }
+    var recipeMenu2: Menu<Recipe> { Menu(meals: []) }
+
     lazy var fetchDessertTests: [(input: FetchDessertInput, expected: FetchDessertExpected)] = [
         (
             FetchDessertInput(data: Data(),
                               httpClientError: nil,
-                              decodeObjectToReturn: menu1,
+                              decodeObjectToReturn: recipeMenu1,
                               decodeError: nil),
             FetchDessertExpected(recipe: recipe1, error: nil)
         ),
@@ -154,7 +156,7 @@ final class MealRepositoryImplTests: XCTestCase {
         (
             FetchDessertInput(data: Data(),
                               httpClientError: nil,
-                              decodeObjectToReturn: menu2,
+                              decodeObjectToReturn: recipeMenu2,
                               decodeError: nil),
             FetchDessertExpected(recipe: nil, error: MealRepositoryError.invalidRecipe)
         )

@@ -46,7 +46,7 @@ class MealsViewModelImpl: MealsViewModel {
     var title: String = "Desserts"
 
     var state: CurrentValueSubject<MealsViewState, Never>
-    private var meals: [Recipe]
+    private var meals: [Meal]
 
     init(mealsRepository: MealRepository) {
         self.mealsRepository = mealsRepository
@@ -57,7 +57,7 @@ class MealsViewModelImpl: MealsViewModel {
     func fetchMeals() async {
         state.value = .loading
         do {
-            let meals: [Recipe] = try await mealsRepository.fetchDesserts()
+            let meals: [Meal] = try await mealsRepository.fetchDesserts()
                 .filter { meal in !meal.strMeal.isEmpty }
                 .sorted { meal1, meal2 in meal1.strMeal < meal2.strMeal }
             self.meals = meals
