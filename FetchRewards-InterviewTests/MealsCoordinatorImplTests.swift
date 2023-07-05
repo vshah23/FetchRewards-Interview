@@ -68,7 +68,7 @@ final class MealsCoordinatorImplTests: XCTestCase {
     }
 
     func testParentViewController() {
-        let actual: UIViewController? = (coordinator as? LoadingScreenShowable)?.parentViewController
+        let actual: UIViewController? = (coordinator as? LoadingScreenShowable)?.viewControllerForDisplay
         let expected: UINavigationController = navigationController
         XCTAssertEqual(actual, expected)
     }

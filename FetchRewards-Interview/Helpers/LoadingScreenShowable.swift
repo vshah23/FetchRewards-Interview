@@ -8,7 +8,7 @@
 import UIKit
 
 protocol LoadingScreenShowable: AnyObject {
-    var parentViewController: UIViewController { get }
+    var viewControllerForDisplay: UIViewController { get }
     func showLoader()
     func hideLoader(_ completion: (@Sendable () async -> Void)?) async
 }
@@ -62,22 +62,20 @@ let loaderViewController: UIViewController = {
     return viewController
 }()
 
-/// The ViewController that presented the loader
-private var presentingViewController: UIViewController?
-
 @MainActor
 extension LoadingScreenShowable {
     func showLoader() {
         guard !loaderViewController.isBeingPresented else { return }
-        parentViewController.present(loaderViewController, animated: true)
-        presentingViewController = parentViewController
+        viewControllerForDisplay.present(loaderViewController, animated: true)
     }
 
     func hideLoader(_ completion: (@Sendable () async -> Void)? = nil) async {
-        guard loaderViewController.isBeingPresented else { return }
-        presentingViewController?.dismiss(animated: true) {
+        guard loaderViewController.isBeingPresented else {
             Task { await completion?() }
-            presentingViewController = nil
+            return
+        }
+        loaderViewController.dismiss(animated: true) {
+            Task { await completion?() }
         }
     }
 }

@@ -8,7 +8,7 @@
 import UIKit
 
 protocol ErrorShowable: AnyObject {
-    var parentViewController: UIViewController { get }
+    var viewControllerForDisplay: UIViewController { get }
     func showError(errorMessage: String)
 }
 
@@ -20,6 +20,6 @@ extension ErrorShowable {
                                                                    preferredStyle: .alert)
         let action: UIAlertAction = UIAlertAction(title: "OK", style: .default)
         alertController.addAction(action)
-        parentViewController.present(alertController, animated: true)
+        viewControllerForDisplay.present(alertController, animated: true)
     }
 }

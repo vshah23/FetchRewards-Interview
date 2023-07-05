@@ -77,5 +77,5 @@ extension MealsCoordinator: MealsViewControllerDelegate {
 }
 
 extension MealsCoordinator: LoadingScreenShowable, ErrorShowable {
-    var parentViewController: UIViewController { navigationController }
+    var viewControllerForDisplay: UIViewController { navigationController }
 }
