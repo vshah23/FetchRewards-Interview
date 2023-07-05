@@ -9,7 +9,7 @@ import XCTest
 
 private let dataToReturn: Data = "Yay!".data(using: .utf8)!
 
-final class HTTPClientTests: XCTestCase {
+final class HTTPClientImplTests: XCTestCase {
     struct Input {
         let url: String
         let queryParams: [URLQueryItem]?

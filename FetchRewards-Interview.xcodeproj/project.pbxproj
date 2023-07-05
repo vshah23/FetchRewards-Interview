@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1D07874C2A53EF2A00547484 /* HTTPClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D07874B2A53EF2A00547484 /* HTTPClientTests.swift */; };
+		1D07874C2A53EF2A00547484 /* HTTPClientImplTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D07874B2A53EF2A00547484 /* HTTPClientImplTests.swift */; };
 		1D07874F2A54A92400547484 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2F15B82A4CF57500C0FA2D /* Recipe.swift */; };
 		1D0787512A54AE4300547484 /* MealsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D0787502A54AE4300547484 /* MealsViewControllerTests.swift */; };
 		1D0787522A54AE6300547484 /* MealsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2F15882A4CC4D000C0FA2D /* MealsViewController.swift */; };
@@ -71,7 +71,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1D07874B2A53EF2A00547484 /* HTTPClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClientTests.swift; sourceTree = "<group>"; };
+		1D07874B2A53EF2A00547484 /* HTTPClientImplTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClientImplTests.swift; sourceTree = "<group>"; };
 		1D0787502A54AE4300547484 /* MealsViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsViewControllerTests.swift; sourceTree = "<group>"; };
 		1D07875B2A54FE4700547484 /* UITableViewCell+ExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+ExtensionsTests.swift"; sourceTree = "<group>"; };
 		1D07875D2A55060800547484 /* UITableView+ExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+ExtensionsTests.swift"; sourceTree = "<group>"; };
@@ -190,7 +190,7 @@
 			children = (
 				1DF2F51A2A53D60D007AD662 /* FetchRewards-InterviewTests.xctestplan */,
 				1D94199C2A539AA600221A0E /* ErrorHelperTests.swift */,
-				1D07874B2A53EF2A00547484 /* HTTPClientTests.swift */,
+				1D07874B2A53EF2A00547484 /* HTTPClientImplTests.swift */,
 				1D0787502A54AE4300547484 /* MealsViewControllerTests.swift */,
 				1D07875B2A54FE4700547484 /* UITableViewCell+ExtensionsTests.swift */,
 				1D07875D2A55060800547484 /* UITableView+ExtensionsTests.swift */,
@@ -471,7 +471,7 @@
 				1DF2F51E2A53E64D007AD662 /* TestingAppDelegate.swift in Sources */,
 				1DF2F5202A53E6B7007AD662 /* TestingSceneDelegate.swift in Sources */,
 				1D0787562A54B38000547484 /* UITableViewCell+Extensions.swift in Sources */,
-				1D07874C2A53EF2A00547484 /* HTTPClientTests.swift in Sources */,
+				1D07874C2A53EF2A00547484 /* HTTPClientImplTests.swift in Sources */,
 				1D94199E2A53CD9F00221A0E /* ErrorHelper.swift in Sources */,
 				1D94199F2A53CDD500221A0E /* HTTPClient.swift in Sources */,
 				1D07875E2A55060800547484 /* UITableView+ExtensionsTests.swift in Sources */,
