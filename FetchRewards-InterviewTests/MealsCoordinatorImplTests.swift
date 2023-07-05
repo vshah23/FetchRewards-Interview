@@ -1,5 +1,5 @@
 //
-//  MealsCoordinatorTests.swift
+//  MealsCoordinatorImplTests.swift
 //  FetchRewards-InterviewTests
 //
 //  Created by Vikas Shah on 7/4/23.
@@ -9,7 +9,9 @@ import XCTest
 
 final class MealsCoordinatorImplTests: XCTestCase {
     struct StubHTTPClientSession: HTTPClientSession {
-        func data(for request: URLRequest, delegate: (URLSessionTaskDelegate)?) async throws -> (Data, URLResponse) { return (Data(), URLResponse()) }
+        func data(for request: URLRequest, delegate: (URLSessionTaskDelegate)?) async throws -> (Data, URLResponse) {
+            return (Data(), URLResponse())
+        }
     }
 
     struct StubHTTPClient: HTTPClient {
@@ -31,8 +33,15 @@ final class MealsCoordinatorImplTests: XCTestCase {
         }
     }
 
+    enum StubDecodingError: Error {
+        case shouldNotBeCalled
+    }
+
     struct StubJSONDecoding: JSONDecoding {
-        func decode<T>(_ type: T.Type, from data: Data) throws -> T where T : Decodable {  }
+        func decode<T>(_ type: T.Type, from data: Data) throws -> T where T: Decodable {
+            throw StubDecodingError.shouldNotBeCalled
+
+        }
     }
 
     func testStart() {
@@ -41,5 +50,11 @@ final class MealsCoordinatorImplTests: XCTestCase {
         let decoder: JSONDecoding = StubJSONDecoding()
         let repository: MealRepository = StubMealRepository(httpClient: httpClient, jsonDecoder: decoder)
 
+        let navigationController: UINavigationController = UINavigationController()
+        let coordinator: Coordinator = MealsCoordinatorImpl(navigationController: navigationController,
+                                                            mealRepository: repository)
+        coordinator.start()
+
+        XCTAssertTrue(navigationController.viewControllers.contains(where: { $0 is MealsViewController }))
     }
 }

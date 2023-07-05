@@ -20,6 +20,13 @@
 		1D0787592A54B3AC00547484 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2F15BA2A4CF59C00C0FA2D /* Menu.swift */; };
 		1D07875C2A54FE4700547484 /* UITableViewCell+ExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D07875B2A54FE4700547484 /* UITableViewCell+ExtensionsTests.swift */; };
 		1D07875E2A55060800547484 /* UITableView+ExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D07875D2A55060800547484 /* UITableView+ExtensionsTests.swift */; };
+		1D0787602A55086100547484 /* MealsCoordinatorImplTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D07875F2A55086100547484 /* MealsCoordinatorImplTests.swift */; };
+		1D0787612A550F8E00547484 /* MealsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2F15C62A4E2BE400C0FA2D /* MealsCoordinator.swift */; };
+		1D0787622A550F9F00547484 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2F15C12A4E24D500C0FA2D /* Coordinator.swift */; };
+		1D0787632A55101E00547484 /* LoadingScreenShowable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2F15D72A4F9C2700C0FA2D /* LoadingScreenShowable.swift */; };
+		1D0787642A55102700547484 /* ErrorShowable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2F15D92A4F9DF900C0FA2D /* ErrorShowable.swift */; };
+		1D0787652A55104000547484 /* MealDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2F15D22A4E436600C0FA2D /* MealDetailsViewController.swift */; };
+		1D0787662A55104900547484 /* MealDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2F15D42A4E436F00C0FA2D /* MealDetailsViewModel.swift */; };
 		1D2F15852A4CC4D000C0FA2D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2F15842A4CC4D000C0FA2D /* AppDelegate.swift */; };
 		1D2F15872A4CC4D000C0FA2D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2F15862A4CC4D000C0FA2D /* SceneDelegate.swift */; };
 		1D2F15892A4CC4D000C0FA2D /* MealsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2F15882A4CC4D000C0FA2D /* MealsViewController.swift */; };
@@ -75,6 +82,7 @@
 		1D0787502A54AE4300547484 /* MealsViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsViewControllerTests.swift; sourceTree = "<group>"; };
 		1D07875B2A54FE4700547484 /* UITableViewCell+ExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+ExtensionsTests.swift"; sourceTree = "<group>"; };
 		1D07875D2A55060800547484 /* UITableView+ExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+ExtensionsTests.swift"; sourceTree = "<group>"; };
+		1D07875F2A55086100547484 /* MealsCoordinatorImplTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsCoordinatorImplTests.swift; sourceTree = "<group>"; };
 		1D2F15812A4CC4D000C0FA2D /* FetchRewards-Interview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FetchRewards-Interview.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D2F15842A4CC4D000C0FA2D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1D2F15862A4CC4D000C0FA2D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -191,6 +199,7 @@
 				1DF2F51A2A53D60D007AD662 /* FetchRewards-InterviewTests.xctestplan */,
 				1D94199C2A539AA600221A0E /* ErrorHelperTests.swift */,
 				1D07874B2A53EF2A00547484 /* HTTPClientImplTests.swift */,
+				1D07875F2A55086100547484 /* MealsCoordinatorImplTests.swift */,
 				1D0787502A54AE4300547484 /* MealsViewControllerTests.swift */,
 				1D07875B2A54FE4700547484 /* UITableViewCell+ExtensionsTests.swift */,
 				1D07875D2A55060800547484 /* UITableView+ExtensionsTests.swift */,
@@ -465,16 +474,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D0787632A55101E00547484 /* LoadingScreenShowable.swift in Sources */,
 				1D0787512A54AE4300547484 /* MealsViewControllerTests.swift in Sources */,
 				1D07875C2A54FE4700547484 /* UITableViewCell+ExtensionsTests.swift in Sources */,
 				1D94199D2A539AA600221A0E /* ErrorHelperTests.swift in Sources */,
 				1DF2F51E2A53E64D007AD662 /* TestingAppDelegate.swift in Sources */,
+				1D0787642A55102700547484 /* ErrorShowable.swift in Sources */,
 				1DF2F5202A53E6B7007AD662 /* TestingSceneDelegate.swift in Sources */,
 				1D0787562A54B38000547484 /* UITableViewCell+Extensions.swift in Sources */,
+				1D0787662A55104900547484 /* MealDetailsViewModel.swift in Sources */,
+				1D0787622A550F9F00547484 /* Coordinator.swift in Sources */,
 				1D07874C2A53EF2A00547484 /* HTTPClientImplTests.swift in Sources */,
 				1D94199E2A53CD9F00221A0E /* ErrorHelper.swift in Sources */,
 				1D94199F2A53CDD500221A0E /* HTTPClient.swift in Sources */,
 				1D07875E2A55060800547484 /* UITableView+ExtensionsTests.swift in Sources */,
+				1D0787652A55104000547484 /* MealDetailsViewController.swift in Sources */,
 				1D0787522A54AE6300547484 /* MealsViewController.swift in Sources */,
 				1D0787582A54B39B00547484 /* JSONCoding.swift in Sources */,
 				1D0787552A54B36700547484 /* UITableView+Extensions.swift in Sources */,
@@ -484,6 +498,8 @@
 				1D0787542A54B35500547484 /* TableViewCellTypeProvider.swift in Sources */,
 				1D0787572A54B38F00547484 /* MealRepository.swift in Sources */,
 				1D0787532A54AE9E00547484 /* MealsViewModel.swift in Sources */,
+				1D0787602A55086100547484 /* MealsCoordinatorImplTests.swift in Sources */,
+				1D0787612A550F8E00547484 /* MealsCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
