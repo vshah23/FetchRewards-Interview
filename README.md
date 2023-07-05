@@ -29,7 +29,7 @@
 * The names of the properties in the model can be refactored so they're a bit nicer on the client side. From the API I would prefer if the model returned an array of "ingredients" instead of having separate properties for each name and value.
 
 ## Assumptions
-* We needed to handle more than just the happy path. A good application is not only defined by how well it performs when everything is going well, but also how well it performs when handling error states. Also consider what avenues for recovery from are available to the user.
+* We needed to handle more than just the happy path. A good application is not only defined by how well it performs when everything is going well, but also how well it performs when handling error states. Also consider what avenues for recovery from are available to the user. Following this line of thought I handled the loading UI state as well as offline and generic error states. 
 * We need to support the latest two version of iOS (15 and up)
 
 
