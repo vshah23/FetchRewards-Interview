@@ -1,4 +1,4 @@
-# FetchRewards-Interview
+## An app to display recipes from the [MealDB API](https://www.themealdb.com/api.php)
 
 [![Build Status](https://app.bitrise.io/app/0548c39f-ab19-4912-a213-9baa647312b7/status.svg?token=xmeiF9x02Ak3ZpcaA5FO5Q&branch=master)](https://app.bitrise.io/app/0548c39f-ab19-4912-a213-9baa647312b7)
 
